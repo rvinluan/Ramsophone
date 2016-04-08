@@ -1,0 +1,214 @@
+@function makelongshadow($original-shadow, $l) {
+  $val: #{$original-shadow}, 0px 0px rgba(0,0,0,0.1);
+  @for $i from 1 through $l {
+    $start1: 1;
+    $stop1: $l;
+    $start2: 0.05;
+    $stop2: 0;
+    $opacity: ((($i - $start1)/($stop1 - $start1))*($stop2 - $start2) + $start2);
+    $val: #{$val}, -#{$i}px #{$i}px 2px rgba(0,0,0, $opacity);
+  }
+  @return $val;
+}
+
+@mixin longshadow($original-shadow: "") {
+  box-shadow: makelongshadow($original-shadow, 20);
+}
+
+@mixin shortshadow($original-shadow: "") {
+  box-shadow: makelongshadow($original-shadow, 15);
+}
+
+#all {
+  height: auto;
+  position: static;
+  margin-top: 200px;
+}
+
+.module {
+  // border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+//components~
+
+#speaker-massive-1,
+#speaker-massive-2,
+#speaker-1 {
+  flex-wrap: wrap;
+
+  .speaker-hole {
+    width: 100%;
+    background: #333;
+    height: 6px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px 1px #FFF;
+  }
+}
+
+#speaker-1 {
+  padding: 100px;
+  justify-content: space-around;
+
+  .speaker-hole {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+#speaker-massive-1 {
+  .left-half,
+  .right-half {
+    width: 40%;
+  }
+
+  .left-half {
+    margin-right: 10px;
+  }
+}
+
+#speaker-massive-2 {
+  padding: 100px;
+}
+
+#knob-series-small,
+#knob-series-medium,
+#knob-single {
+    display: flex;
+    &:last-child {
+      margin-right: 0;
+    }
+  
+  .knob {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #eee;
+    position: relative;
+
+    $original-shadow: inset 0 -3px 1px rgba(0,0,0,0.2), 
+                  inset 0 3px 1px rgba(255,255,255,.9);
+    @include longshadow($original-shadow);
+
+    //marker
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 3px;
+      height: 25%;
+      transform: rotate(45deg);
+      transform-origin: 50% 200%;
+      background-color: #EA5D5D;
+    }
+  }
+}
+
+#knob-series-small {
+  .knob {
+    width: 80px;
+    height: 80px;
+
+    &:after {
+      background-color: #666;
+      width: 3px;
+      height: 3px;
+      border-radius: 3px;
+      top: 10px;
+      left: 50%;
+      transform-origin: 0 30px;
+    }
+  }
+}
+
+#knob-series-medium {
+  .knob {
+    margin-right: 50px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+#meter {
+  padding: 20px;
+
+  .meter {
+    width: 100%;
+    height: 100%;
+    background-color: #E8E5DD;
+    position: relative;
+    box-shadow: inset 0 0px 3px rgba(0,0,0,0.2),
+                  inset 0 2px 1px rgba(0,0,0,0.3);
+
+
+    &:after {
+      content: "";
+      width: 100%;
+      position: absolute;
+      height: 3px;
+      background-color: #EA5D5D;
+      top: 34px;
+    }
+  }
+}
+
+#switch-series-medium {
+  .switch-well {
+    display: flex;
+    border-radius: 6px;
+    border: 1px solid #666;
+    border-top-color: #eee;
+    background-color: #666;
+  }
+
+  .switch {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    margin-left: 2px;
+    background: linear-gradient(to right, #eee, #ccc);
+    border-radius: 4px;
+    border-bottom: 4px solid #aaa;
+    $original-shadow: inset -2px 0 1px 1px rgba(255,255,255,.7),
+      inset -10px 4px 10px 2px rgba(0,0,0,0.05);
+
+    @include longshadow($original-shadow);
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        z-index: 5-$i;
+      }
+    }
+
+    &.depressed {
+      z-index: 0;
+      background: linear-gradient(to right, #ddd, #ccc);
+      border-bottom: 4px solid #999;
+      $original-shadow: inset -1px 0 1px 1px rgba(255,255,255,.4),
+        inset -10px 4px 10px 2px rgba(0,0,0,0.05),
+        inset -10px 4px 10px 2px rgba(0,0,0,0.05);
+
+      @include shortshadow($original-shadow);
+
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
