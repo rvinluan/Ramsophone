@@ -14,13 +14,23 @@
   justify-content: center;
 }
 
-/* line 39, ../scss/components.scss */
+/* line 37, ../scss/components.scss */
+.knob {
+  cursor: ns-resize;
+}
+
+/* line 40, ../scss/components.scss */
+.switch {
+  cursor: pointer;
+}
+
+/* line 46, ../scss/components.scss */
 #speaker-massive-1,
 #speaker-massive-2,
 #speaker-1 {
   flex-wrap: wrap;
 }
-/* line 44, ../scss/components.scss */
+/* line 51, ../scss/components.scss */
 #speaker-massive-1 .speaker-hole,
 #speaker-massive-2 .speaker-hole,
 #speaker-1 .speaker-hole {
@@ -32,13 +42,13 @@
   box-shadow: 0 2px 1px #FFF;
 }
 
-/* line 54, ../scss/components.scss */
+/* line 61, ../scss/components.scss */
 #speaker-1 {
   padding: 10%;
   justify-content: space-between;
   align-content: space-between;
 }
-/* line 59, ../scss/components.scss */
+/* line 66, ../scss/components.scss */
 #speaker-1 .speaker-hole {
   width: 10px;
   height: 10px;
@@ -46,28 +56,28 @@
   margin: 10px;
 }
 
-/* line 68, ../scss/components.scss */
+/* line 75, ../scss/components.scss */
 #speaker-massive-1 .left-half,
 #speaker-massive-1 .right-half {
   width: 40%;
 }
-/* line 73, ../scss/components.scss */
+/* line 80, ../scss/components.scss */
 #speaker-massive-1 .left-half {
   margin-right: 10px;
 }
 
-/* line 78, ../scss/components.scss */
+/* line 85, ../scss/components.scss */
 #speaker-massive-2 {
   padding: 100px;
 }
 
-/* line 82, ../scss/components.scss */
+/* line 89, ../scss/components.scss */
 #knob-series-small,
 #knob-series-medium,
 #knob-single {
   display: flex;
 }
-/* line 87, ../scss/components.scss */
+/* line 94, ../scss/components.scss */
 #knob-series-small .knob,
 #knob-series-medium .knob,
 #knob-single .knob {
@@ -76,12 +86,12 @@
   border-radius: 50%;
   background-color: #eee;
   position: relative;
-  box-shadow: inset 0 -3px 1px rgba(0, 0, 0, 0.2), inset 0 3px 1px rgba(255, 255, 255, 0.9), 0px 0px rgba(0, 0, 0, 0.1), -1px 1px 2px rgba(0, 0, 0, 0.05), -2px 2px 2px rgba(0, 0, 0, 0.04737), -3px 3px 2px rgba(0, 0, 0, 0.04474), -4px 4px 2px rgba(0, 0, 0, 0.04211), -5px 5px 2px rgba(0, 0, 0, 0.03947), -6px 6px 2px rgba(0, 0, 0, 0.03684), -7px 7px 2px rgba(0, 0, 0, 0.03421), -8px 8px 2px rgba(0, 0, 0, 0.03158), -9px 9px 2px rgba(0, 0, 0, 0.02895), -10px 10px 2px rgba(0, 0, 0, 0.02632), -11px 11px 2px rgba(0, 0, 0, 0.02368), -12px 12px 2px rgba(0, 0, 0, 0.02105), -13px 13px 2px rgba(0, 0, 0, 0.01842), -14px 14px 2px rgba(0, 0, 0, 0.01579), -15px 15px 2px rgba(0, 0, 0, 0.01316), -16px 16px 2px rgba(0, 0, 0, 0.01053), -17px 17px 2px rgba(0, 0, 0, 0.00789), -18px 18px 2px rgba(0, 0, 0, 0.00526), -19px 19px 2px rgba(0, 0, 0, 0.00263), -20px 20px 2px transparent;
+  box-shadow: inset 0 -3px 1px rgba(0, 0, 0, 0.2), inset 0 3px 1px rgba(255, 255, 255, 0.9), 0px 0px rgba(0, 0, 0, 0.1), -2px 1px 2px rgba(0, 0, 0, 0.05), -3px 2px 2px rgba(0, 0, 0, 0.04737), -4px 3px 2px rgba(0, 0, 0, 0.04474), -5px 4px 2px rgba(0, 0, 0, 0.04211), -6px 5px 2px rgba(0, 0, 0, 0.03947), -7px 6px 2px rgba(0, 0, 0, 0.03684), -8px 7px 2px rgba(0, 0, 0, 0.03421), -9px 8px 2px rgba(0, 0, 0, 0.03158), -10px 9px 2px rgba(0, 0, 0, 0.02895), -11px 10px 2px rgba(0, 0, 0, 0.02632), -12px 11px 2px rgba(0, 0, 0, 0.02368), -13px 12px 2px rgba(0, 0, 0, 0.02105), -14px 13px 2px rgba(0, 0, 0, 0.01842), -15px 14px 2px rgba(0, 0, 0, 0.01579), -16px 15px 2px rgba(0, 0, 0, 0.01316), -17px 16px 2px rgba(0, 0, 0, 0.01053), -18px 17px 2px rgba(0, 0, 0, 0.00789), -19px 18px 2px rgba(0, 0, 0, 0.00526), -20px 19px 2px rgba(0, 0, 0, 0.00263), -21px 20px 2px transparent;
 }
-/* line 99, ../scss/components.scss */
-#knob-series-small .knob:after,
-#knob-series-medium .knob:after,
-#knob-single .knob:after {
+/* line 106, ../scss/components.scss */
+#knob-series-small .knob .indicator,
+#knob-series-medium .knob .indicator,
+#knob-single .knob .indicator {
   content: '';
   display: block;
   position: absolute;
@@ -94,14 +104,14 @@
   background-color: #EA5D5D;
 }
 
-/* line 115, ../scss/components.scss */
+/* line 122, ../scss/components.scss */
 #knob-series-small .knob {
   width: 70%;
   height: 70%;
   padding-bottom: 0;
 }
-/* line 120, ../scss/components.scss */
-#knob-series-small .knob:after {
+/* line 127, ../scss/components.scss */
+#knob-series-small .knob .indicator {
   background-color: #666;
   width: 3px;
   height: 3px;
@@ -111,17 +121,17 @@
   transform-origin: 0 30px;
 }
 
-/* line 132, ../scss/components.scss */
+/* line 139, ../scss/components.scss */
 #knob-series-medium {
   padding: 5%;
   justify-content: space-between;
 }
 
-/* line 137, ../scss/components.scss */
+/* line 144, ../scss/components.scss */
 #meter {
   padding: 20px 20px 18px 20px;
 }
-/* line 140, ../scss/components.scss */
+/* line 147, ../scss/components.scss */
 #meter .meter {
   width: 100%;
   height: 100%;
@@ -129,8 +139,8 @@
   position: relative;
   box-shadow: inset 0 0px 3px rgba(0, 0, 0, 0.2), inset 0 2px 1px rgba(0, 0, 0, 0.3);
 }
-/* line 149, ../scss/components.scss */
-#meter .meter:after {
+/* line 156, ../scss/components.scss */
+#meter .meter .indicator {
   content: "";
   width: 100%;
   position: absolute;
@@ -139,7 +149,7 @@
   top: 34px;
 }
 
-/* line 161, ../scss/components.scss */
+/* line 168, ../scss/components.scss */
 #switch-series-medium .switch-well {
   display: flex;
   border-radius: 6px;
@@ -149,43 +159,46 @@
   width: 80%;
   height: 40%;
 }
-/* line 171, ../scss/components.scss */
+/* line 178, ../scss/components.scss */
 #switch-series-medium .switch {
   position: relative;
   width: 50%;
   height: 90%;
+  top: -5px;
   max-width: 100px;
   max-height: 50px;
   margin-left: 2px;
   background: linear-gradient(to right, #eee, #ccc);
   border-radius: 4px;
-  border-bottom: 4px solid #aaa;
-  box-shadow: inset -2px 0 1px 1px rgba(255, 255, 255, 0.7), inset -10px 4px 10px 2px rgba(0, 0, 0, 0.05), 0px 0px rgba(0, 0, 0, 0.1), -1px 1px 2px rgba(0, 0, 0, 0.05), -2px 2px 2px rgba(0, 0, 0, 0.04737), -3px 3px 2px rgba(0, 0, 0, 0.04474), -4px 4px 2px rgba(0, 0, 0, 0.04211), -5px 5px 2px rgba(0, 0, 0, 0.03947), -6px 6px 2px rgba(0, 0, 0, 0.03684), -7px 7px 2px rgba(0, 0, 0, 0.03421), -8px 8px 2px rgba(0, 0, 0, 0.03158), -9px 9px 2px rgba(0, 0, 0, 0.02895), -10px 10px 2px rgba(0, 0, 0, 0.02632), -11px 11px 2px rgba(0, 0, 0, 0.02368), -12px 12px 2px rgba(0, 0, 0, 0.02105), -13px 13px 2px rgba(0, 0, 0, 0.01842), -14px 14px 2px rgba(0, 0, 0, 0.01579), -15px 15px 2px rgba(0, 0, 0, 0.01316), -16px 16px 2px rgba(0, 0, 0, 0.01053), -17px 17px 2px rgba(0, 0, 0, 0.00789), -18px 18px 2px rgba(0, 0, 0, 0.00526), -19px 19px 2px rgba(0, 0, 0, 0.00263), -20px 20px 2px transparent;
+  border-bottom: 10px solid #aaa;
+  transition: all .2s;
+  box-shadow: inset -2px 0 1px 1px rgba(255, 255, 255, 0.7), inset 0 0 8px 8px rgba(128, 128, 128, 0.1), inset -10px 4px 10px 2px rgba(0, 0, 0, 0.05), 0px 0px rgba(0, 0, 0, 0.1), -2px 1px 2px rgba(0, 0, 0, 0.05), -3px 2px 2px rgba(0, 0, 0, 0.04737), -4px 3px 2px rgba(0, 0, 0, 0.04474), -5px 4px 2px rgba(0, 0, 0, 0.04211), -6px 5px 2px rgba(0, 0, 0, 0.03947), -7px 6px 2px rgba(0, 0, 0, 0.03684), -8px 7px 2px rgba(0, 0, 0, 0.03421), -9px 8px 2px rgba(0, 0, 0, 0.03158), -10px 9px 2px rgba(0, 0, 0, 0.02895), -11px 10px 2px rgba(0, 0, 0, 0.02632), -12px 11px 2px rgba(0, 0, 0, 0.02368), -13px 12px 2px rgba(0, 0, 0, 0.02105), -14px 13px 2px rgba(0, 0, 0, 0.01842), -15px 14px 2px rgba(0, 0, 0, 0.01579), -16px 15px 2px rgba(0, 0, 0, 0.01316), -17px 16px 2px rgba(0, 0, 0, 0.01053), -18px 17px 2px rgba(0, 0, 0, 0.00789), -19px 18px 2px rgba(0, 0, 0, 0.00526), -20px 19px 2px rgba(0, 0, 0, 0.00263), -21px 20px 2px transparent;
 }
-/* line 187, ../scss/components.scss */
+/* line 197, ../scss/components.scss */
 #switch-series-medium .switch:nth-child(1) {
   z-index: 4;
 }
-/* line 187, ../scss/components.scss */
+/* line 197, ../scss/components.scss */
 #switch-series-medium .switch:nth-child(2) {
   z-index: 3;
 }
-/* line 187, ../scss/components.scss */
+/* line 197, ../scss/components.scss */
 #switch-series-medium .switch:nth-child(3) {
   z-index: 2;
 }
-/* line 187, ../scss/components.scss */
+/* line 197, ../scss/components.scss */
 #switch-series-medium .switch:nth-child(4) {
   z-index: 1;
 }
-/* line 192, ../scss/components.scss */
+/* line 202, ../scss/components.scss */
 #switch-series-medium .switch.depressed {
   z-index: 0;
   background: linear-gradient(to right, #ddd, #ccc);
+  top: 1px;
   border-bottom: 4px solid #999;
-  box-shadow: inset -1px 0 1px 1px rgba(255, 255, 255, 0.4), inset -10px 4px 10px 2px rgba(0, 0, 0, 0.05), inset -10px 4px 10px 2px rgba(0, 0, 0, 0.05), 0px 0px rgba(0, 0, 0, 0.1), -1px 1px 2px rgba(0, 0, 0, 0.05), -2px 2px 2px rgba(0, 0, 0, 0.04643), -3px 3px 2px rgba(0, 0, 0, 0.04286), -4px 4px 2px rgba(0, 0, 0, 0.03929), -5px 5px 2px rgba(0, 0, 0, 0.03571), -6px 6px 2px rgba(0, 0, 0, 0.03214), -7px 7px 2px rgba(0, 0, 0, 0.02857), -8px 8px 2px rgba(0, 0, 0, 0.025), -9px 9px 2px rgba(0, 0, 0, 0.02143), -10px 10px 2px rgba(0, 0, 0, 0.01786), -11px 11px 2px rgba(0, 0, 0, 0.01429), -12px 12px 2px rgba(0, 0, 0, 0.01071), -13px 13px 2px rgba(0, 0, 0, 0.00714), -14px 14px 2px rgba(0, 0, 0, 0.00357), -15px 15px 2px transparent;
+  box-shadow: inset -1px 0 1px 1px rgba(255, 255, 255, 0.4), inset 0 0 8px 8px rgba(128, 128, 128, 0.1), inset -10px 4px 10px 2px rgba(128, 128, 128, 0.05), inset -10px 4px 10px 2px rgba(128, 128, 128, 0.05), 0px 0px rgba(0, 0, 0, 0.1), -2px 1px 2px rgba(0, 0, 0, 0.05), -3px 2px 2px rgba(0, 0, 0, 0.04643), -4px 3px 2px rgba(0, 0, 0, 0.04286), -5px 4px 2px rgba(0, 0, 0, 0.03929), -6px 5px 2px rgba(0, 0, 0, 0.03571), -7px 6px 2px rgba(0, 0, 0, 0.03214), -8px 7px 2px rgba(0, 0, 0, 0.02857), -9px 8px 2px rgba(0, 0, 0, 0.025), -10px 9px 2px rgba(0, 0, 0, 0.02143), -11px 10px 2px rgba(0, 0, 0, 0.01786), -12px 11px 2px rgba(0, 0, 0, 0.01429), -13px 12px 2px rgba(0, 0, 0, 0.01071), -14px 13px 2px rgba(0, 0, 0, 0.00714), -15px 14px 2px rgba(0, 0, 0, 0.00357), -16px 15px 2px transparent;
 }
-/* line 204, ../scss/components.scss */
+/* line 216, ../scss/components.scss */
 #switch-series-medium .switch:first-child {
   margin-left: 0;
 }
