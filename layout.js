@@ -4,7 +4,8 @@ Array.prototype.randomIn = function() {
 
 var Modules = {};
 var Layout = {
-  hasSpeaker: false
+  hasSpeaker: false,
+  hasButton: false
 }
 
 Modules.modulesInSizeOrder = [
@@ -103,6 +104,15 @@ Layout.fillSpace = function(x, y, w, h) {
       return;
     } else {
       Layout.hasSpeaker = true;
+    }
+  }
+  //make sure there's only one button
+  if(p.name.indexOf("button") !== -1) {
+    if(Layout.hasButton) {
+      Layout.fillSpace(x, y, w, h); //try again
+      return;
+    } else {
+      Layout.hasButton = true;
     }
   }
   Modules.constructDiv(p, x, y);
