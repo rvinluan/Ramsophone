@@ -1,4 +1,4 @@
-@function makelongshadow($original-shadow, $l) {
+@function makeShadow($original-shadow, $l) {
   $val: #{$original-shadow}, 0px 0px rgba(0,0,0,0.1);
   @for $i from 1 through $l {
     $start1: 1;
@@ -6,17 +6,17 @@
     $start2: 0.05;
     $stop2: 0;
     $opacity: ((($i - $start1)/($stop1 - $start1))*($stop2 - $start2) + $start2);
-    $val: #{$val}, -#{$i}px #{$i}px 2px rgba(0,0,0, $opacity);
+    $val: #{$val}, -#{$i+1}px #{$i}px 2px rgba(0,0,0, $opacity);
   }
   @return $val;
 }
 
 @mixin longshadow($original-shadow: "") {
-  box-shadow: makelongshadow($original-shadow, 20);
+  box-shadow: makeShadow($original-shadow, 20);
 }
 
 @mixin shortshadow($original-shadow: "") {
-  box-shadow: makelongshadow($original-shadow, 15);
+  box-shadow: makeShadow($original-shadow, 15);
 }
 
 #all {
@@ -34,16 +34,19 @@
   justify-content: center;
 }
 
+.knob {
+  cursor: ns-resize;
+}
+.switch {
+  cursor: pointer;
+}
+
 //components~
 
-.speaker-massive-1,
-.speaker-massive-2,
-.speaker-1 {
+#speaker-massive-1,
+#speaker-massive-2,
+#speaker-1 {
   flex-wrap: wrap;
-
-  &.grid-x-0 {
-    padding-left: 0;
-  }
 
   .speaker-hole {
     width: 100%;
@@ -55,23 +58,20 @@
   }
 }
 
-.speaker-1 {
-  padding: 100px;
-  justify-content: space-around;
+#speaker-1 {
+  padding: 10%;
+  justify-content: space-between;
+  align-content: space-between;
 
   .speaker-hole {
     width: 10px;
     height: 10px;
     border-radius: 10px;
-    margin-bottom: 25px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin: 10px;
   }
 }
 
-.speaker-massive-1 {
+#speaker-massive-1 {
   .left-half,
   .right-half {
     width: 40%;
@@ -82,21 +82,18 @@
   }
 }
 
-.speaker-massive-2 {
+#speaker-massive-2 {
   padding: 100px;
 }
 
-.knob-series-small,
-.knob-series-medium,
-.knob-single {
+#knob-series-small,
+#knob-series-medium,
+#knob-single {
     display: flex;
-    &:last-child {
-      margin-right: 0;
-    }
-  
+
   .knob {
-    width: 50px;
-    height: 50px;
+    width: 25%;
+    padding-bottom: 25%;
     border-radius: 50%;
     background-color: #eee;
     position: relative;
@@ -106,7 +103,7 @@
     @include longshadow($original-shadow);
 
     //marker
-    &:after {
+    .indicator {
       content: '';
       display: block;
       position: absolute;
@@ -121,12 +118,13 @@
   }
 }
 
-.knob-series-small {
+#knob-series-small {
   .knob {
-    width: 80px;
-    height: 80px;
+    width: 70%;
+    height: 70%;
+    padding-bottom: 0;
 
-    &:after {
+    .indicator {
       background-color: #666;
       width: 3px;
       height: 3px;
@@ -138,20 +136,15 @@
   }
 }
 
-.knob-series-medium {
-  .knob {
-    margin-right: 50px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
+#knob-series-medium {
+  padding: 5%;
+  justify-content: space-between;
 }
 
-.meter {
-  padding: 20px;
+#meter {
+  padding: 20px 20px 18px 20px;
 
-  .meter-inner {
+  .meter {
     width: 100%;
     height: 100%;
     background-color: #E8E5DD;
@@ -160,7 +153,7 @@
                   inset 0 2px 1px rgba(0,0,0,0.3);
 
 
-    &:after {
+    .indicator {
       content: "";
       width: 100%;
       position: absolute;
@@ -171,24 +164,31 @@
   }
 }
 
-.switch-series-medium {
+#switch-series-medium {
   .switch-well {
     display: flex;
     border-radius: 6px;
     border: 1px solid #666;
     border-top-color: #eee;
     background-color: #666;
+    width: 80%;
+    height: 40%;
   }
 
   .switch {
     position: relative;
-    width: 100px;
-    height: 50px;
+    width: 50%;
+    height: 90%;
+    top: -5px;
+    max-width: 100px;
+    max-height: 50px;
     margin-left: 2px;
     background: linear-gradient(to right, #eee, #ccc);
     border-radius: 4px;
-    border-bottom: 4px solid #aaa;
+    border-bottom: 10px solid #aaa;
+    transition: all .2s;
     $original-shadow: inset -2px 0 1px 1px rgba(255,255,255,.7),
+      inset 0 0 8px 8px rgba(128,128,128,.1),
       inset -10px 4px 10px 2px rgba(0,0,0,0.05);
 
     @include longshadow($original-shadow);
@@ -202,11 +202,12 @@
     &.depressed {
       z-index: 0;
       background: linear-gradient(to right, #ddd, #ccc);
-      border-bottom: 1px solid #999;
       top: 1px;
+      border-bottom: 4px solid #999;
       $original-shadow: inset -1px 0 1px 1px rgba(255,255,255,.4),
-        inset -10px 4px 10px 2px rgba(0,0,0,0.05),
-        inset -10px 4px 10px 2px rgba(0,0,0,0.05);
+        inset 0 0 8px 8px rgba(128,128,128,.1),
+        inset -10px 4px 10px 2px rgba(128,128,128,0.05),
+        inset -10px 4px 10px 2px rgba(128,128,128,0.05);
 
       @include shortshadow($original-shadow);
 

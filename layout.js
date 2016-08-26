@@ -77,7 +77,7 @@ Modules.getRandomThatFitsIn = function(w, h) {
 
 Modules.constructDiv = function(obj, x, y) {
   var parent = $(".grid-master");
-  var template = $("#all-component-templates").find("." + obj.name).clone();
+  var template = $("#all-component-templates").find("#" + obj.name).clone();
   template.addClass("module"+" grid-x-"+x+" grid-y-"+y+""+" grid-width-"+obj.width+" grid-height-"+obj.height);
   parent.append(template);
   return template;

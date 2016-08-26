@@ -11,15 +11,15 @@ main {
   margin: auto;
   border-radius: 3px;
   background-color: #eee;
-  width: 640px;
-  height: 640px;
+  width: 480px;
+  height: 480px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   box-shadow: inset 0 5px 5px #FFF, 0 6px 10px #000, 0 15px 20px rgba(0, 0, 0, 0.2);
-  padding: 80px;
+  padding: 60px;
 }
 
 /* line 25, ../scss/grid.scss */
@@ -29,8 +29,8 @@ main {
 
 /* line 29, ../scss/grid.scss */
 .grid-master {
-  width: 640px;
-  height: 640px;
+  width: 480px;
+  height: 480px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -64,160 +64,160 @@ main {
 
 /* line 46, ../scss/grid.scss */
 .grid-width-1 {
-  width: 80px;
+  width: 60px;
 }
 
 /* line 49, ../scss/grid.scss */
 .grid-height-1 {
-  height: 80px;
+  height: 60px;
 }
 
 /* line 52, ../scss/grid.scss */
 .grid-x-1 {
-  left: 80px;
+  left: 60px;
 }
 
 /* line 55, ../scss/grid.scss */
 .grid-y-1 {
-  top: 80px;
+  top: 60px;
 }
 
 /* line 46, ../scss/grid.scss */
 .grid-width-2 {
-  width: 160px;
+  width: 120px;
 }
 
 /* line 49, ../scss/grid.scss */
 .grid-height-2 {
-  height: 160px;
+  height: 120px;
 }
 
 /* line 52, ../scss/grid.scss */
 .grid-x-2 {
-  left: 160px;
+  left: 120px;
 }
 
 /* line 55, ../scss/grid.scss */
 .grid-y-2 {
-  top: 160px;
+  top: 120px;
 }
 
 /* line 46, ../scss/grid.scss */
 .grid-width-3 {
-  width: 240px;
+  width: 180px;
 }
 
 /* line 49, ../scss/grid.scss */
 .grid-height-3 {
-  height: 240px;
+  height: 180px;
 }
 
 /* line 52, ../scss/grid.scss */
 .grid-x-3 {
-  left: 240px;
+  left: 180px;
 }
 
 /* line 55, ../scss/grid.scss */
 .grid-y-3 {
-  top: 240px;
+  top: 180px;
 }
 
 /* line 46, ../scss/grid.scss */
 .grid-width-4 {
-  width: 320px;
+  width: 240px;
 }
 
 /* line 49, ../scss/grid.scss */
 .grid-height-4 {
-  height: 320px;
+  height: 240px;
 }
 
 /* line 52, ../scss/grid.scss */
 .grid-x-4 {
-  left: 320px;
+  left: 240px;
 }
 
 /* line 55, ../scss/grid.scss */
 .grid-y-4 {
-  top: 320px;
+  top: 240px;
 }
 
 /* line 46, ../scss/grid.scss */
 .grid-width-5 {
-  width: 400px;
+  width: 300px;
 }
 
 /* line 49, ../scss/grid.scss */
 .grid-height-5 {
-  height: 400px;
+  height: 300px;
 }
 
 /* line 52, ../scss/grid.scss */
 .grid-x-5 {
-  left: 400px;
+  left: 300px;
 }
 
 /* line 55, ../scss/grid.scss */
 .grid-y-5 {
-  top: 400px;
+  top: 300px;
 }
 
 /* line 46, ../scss/grid.scss */
 .grid-width-6 {
-  width: 480px;
+  width: 360px;
 }
 
 /* line 49, ../scss/grid.scss */
 .grid-height-6 {
-  height: 480px;
+  height: 360px;
 }
 
 /* line 52, ../scss/grid.scss */
 .grid-x-6 {
-  left: 480px;
+  left: 360px;
 }
 
 /* line 55, ../scss/grid.scss */
 .grid-y-6 {
-  top: 480px;
+  top: 360px;
 }
 
 /* line 46, ../scss/grid.scss */
 .grid-width-7 {
-  width: 560px;
+  width: 420px;
 }
 
 /* line 49, ../scss/grid.scss */
 .grid-height-7 {
-  height: 560px;
+  height: 420px;
 }
 
 /* line 52, ../scss/grid.scss */
 .grid-x-7 {
-  left: 560px;
+  left: 420px;
 }
 
 /* line 55, ../scss/grid.scss */
 .grid-y-7 {
-  top: 560px;
+  top: 420px;
 }
 
 /* line 46, ../scss/grid.scss */
 .grid-width-8 {
-  width: 640px;
+  width: 480px;
 }
 
 /* line 49, ../scss/grid.scss */
 .grid-height-8 {
-  height: 640px;
+  height: 480px;
 }
 
 /* line 52, ../scss/grid.scss */
 .grid-x-8 {
-  left: 640px;
+  left: 480px;
 }
 
 /* line 55, ../scss/grid.scss */
 .grid-y-8 {
-  top: 640px;
+  top: 480px;
 }

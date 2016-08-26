@@ -5,7 +5,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-$grid-unit: 80px;
+$grid-unit: 60px;
 
 main {
   margin: auto;
@@ -19,7 +19,7 @@ main {
                 0 6px 10px #000,
                 0 15px 20px rgba(0,0,0,0.2);
 
-  padding: 80px;
+  padding: $grid-unit;
 }
 
 #all-component-templates {
