@@ -21,8 +21,8 @@ Modules.modulesInSizeOrder = [
     },
     {
       name: "empty",
-      width: 4,
-      height: 1
+      width: 2,
+      height: 2
     },
     {
       name: "button-single",
@@ -47,22 +47,22 @@ Modules.modulesInSizeOrder = [
     {
       name: "switch-series-small",
       width: 4,
-      height: 1
+      height: 2
     },
     {
       name: "switch-series-medium",
       width: 4,
       height: 2
     },
-    {
-      name: "slider-horizontal-3",
-      width: 3,
-      height: 1
-    },
+    // {
+    //   name: "slider-horizontal-4",
+    //   width: 4,
+    //   height: 1
+    // },
     {
       name: "slider-horizontal-4",
       width: 4,
-      height: 1
+      height: 2
     },
     {
       name: "meter",
@@ -71,8 +71,8 @@ Modules.modulesInSizeOrder = [
     },
     {
       name: "speaker-1",
-      width: 5,
-      height: 5
+      width: 6,
+      height: 6
     },
     {
       name: "speaker-massive-1",
@@ -148,5 +148,3 @@ Layout.fillSpace = function(x, y, w, h) {
     Layout.fillSpace(x, y + p.height, w, h - p.height);
   }
 }
-
-Layout.fillSpace(0,0,8,8);

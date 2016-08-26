@@ -13,6 +13,36 @@ var Controls = {
   isCurrentlyChanging: false
 };
 
+Controls.applyRandom = function() {
+  $(".grid-master .module").each(function (i, el) {
+    var e = $(el);
+    var switches = e.find(".switch");
+    var knobs = e.find(".knob");
+    var sliders = e.find(".slider");
+    if(switches.length > 0) {
+      switches.each(function (j, f) {
+        var val = Math.random() > 0.5 ? 0 : 1;
+        $(f).attr("data-val", val);
+        val ? $(f).addClass("depressed") : $(f).removeClass("depressed");
+      })
+    }
+    if(knobs.length > 0) {
+      knobs.each(function (j, f) {
+        var val = Math.round(Math.random()*100);
+        $(f).attr("data-val", val);
+        $(f).find(".indicator").css("transform", "rotate("+val+"deg)");
+      })
+    }
+    if(sliders.length > 0) {
+      sliders.each(function (j, f) {
+        var val = Math.round(Math.random()*100);
+        $(f).attr("data-val", val);
+        $(f).css("left", val);
+      })
+    }
+  })
+}
+
 Controls.bindEvents = function() {
   //debug
   $(document).on("keydown", function (e) {
@@ -78,9 +108,9 @@ Controls.sliderControls = function(sliderElement, dx) {
 }
 
 Controls.switchControls = function(switchElement) {
-  if(switchElement.closest(".module").hasClass("radio")) {
-    switchElement.siblings().removeClass("depressed");
-  }
+  // if(switchElement.closest(".module").hasClass("radio")) {
+  //   switchElement.siblings().removeClass("depressed");
+  // }
   switchElement.toggleClass("depressed");
   switchElement.attr("data-val", switchElement.hasClass("depressed") ? 1 : 0);
 }
@@ -89,5 +119,3 @@ Controls.buttonControls = function(buttonElement) {
   buttonElement.toggleClass("depressed");
   buttonElement.attr("data-val", buttonElement.hasClass("depressed") ? 1 : 0);
 }
-
-Controls.bindEvents();

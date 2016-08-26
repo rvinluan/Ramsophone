@@ -69,8 +69,8 @@
   padding: 10%;
 
   .speaker-box {
-    width: 80%;
-    height: 80%;
+    width: 190px;
+    height: 190px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -84,12 +84,6 @@
     border-radius: 10px;
     margin: 10px;
   }
-
-  //padding vanity
-  &.grid-x-0 { padding-left: 0 }
-  &.grid-y-0 { padding-top: 0 }
-  &.grid-x-2 { padding-right: 0 }
-  &.grid-y-2 { padding-bottom: 0 }
 }
 
 #speaker-massive-1 {
@@ -327,11 +321,11 @@
 
 #switch-series-small {
   .switch-well {
-    height: 50%;
+    height: 30%;
     border-radius: 2px;
   }
   .switch {
-    width: 25%;
+    width: 60%;
     border-radius: 0px;
     border-bottom: 8px solid #aaa;
 
