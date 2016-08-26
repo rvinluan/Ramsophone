@@ -15,6 +15,16 @@ Modules.modulesInSizeOrder = [
       height: 1
     },
     {
+      name: "empty",
+      width: 1,
+      height: 4
+    },
+    {
+      name: "empty",
+      width: 4,
+      height: 1
+    },
+    {
       name: "button-single",
       width: 1,
       height: 1
@@ -35,9 +45,24 @@ Modules.modulesInSizeOrder = [
       height: 2
     },
     {
+      name: "switch-series-small",
+      width: 4,
+      height: 1
+    },
+    {
       name: "switch-series-medium",
       width: 4,
       height: 2
+    },
+    {
+      name: "slider-horizontal-3",
+      width: 3,
+      height: 1
+    },
+    {
+      name: "slider-horizontal-4",
+      width: 4,
+      height: 1
     },
     {
       name: "meter",
@@ -91,7 +116,7 @@ Modules.constructDiv = function(obj, x, y) {
 
 Layout.fillSpace = function(x, y, w, h) {
   var p,
-      coin = Math.random();
+      coin = 0;
   if(coin > 0.5) {
     p = Modules.getLargestThatFitsIn(w, h);
   } else {
