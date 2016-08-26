@@ -14,6 +14,13 @@ var Controls = {
 };
 
 Controls.bindEvents = function() {
+  //debug
+  $(document).on("keydown", function (e) {
+    if(e.which == 48) {
+      $("body").toggleClass("debug");
+    }
+  })
+  //mouse interaction
   $(".grid-master")
     .on("mousedown", function (e) {
       Controls.isCurrentlyChanging = true;
