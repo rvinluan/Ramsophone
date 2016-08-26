@@ -29,6 +29,9 @@ Controls.bindEvents = function() {
       if( Controls.changingObject.hasClass("switch")) {
         Controls.switchControls(Controls.changingObject);
       }
+      if( Controls.changingObject.hasClass("button")) {
+        Controls.buttonControls(Controls.changingObject);
+      }
     });
   $(document)
     .on("mouseup", function (e) {
@@ -59,6 +62,11 @@ Controls.switchControls = function(switchElement) {
   // switchElement.siblings().removeClass("depressed");
   switchElement.toggleClass("depressed");
   switchElement.attr("data-val", switchElement.hasClass("depressed") ? 1 : 0);
+}
+
+Controls.buttonControls = function(buttonElement) {
+  buttonElement.toggleClass("depressed");
+  buttonElement.attr("data-val", buttonElement.hasClass("depressed") ? 1 : 0);
 }
 
 Controls.bindEvents();

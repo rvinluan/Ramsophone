@@ -13,6 +13,11 @@ Modules.modulesInSizeOrder = [
       width: 1,
       height: 1
     },
+    {
+      name: "button-single",
+      width: 1,
+      height: 1
+    },
     // {
     //   name: "knob-single",
     //   width: 1,
@@ -86,7 +91,7 @@ Modules.constructDiv = function(obj, x, y) {
 Layout.fillSpace = function(x, y, w, h) {
   var p,
       coin = Math.random();
-  if(coin > .6) {
+  if(coin > 0.5) {
     p = Modules.getLargestThatFitsIn(w, h);
   } else {
     p = Modules.getRandomThatFitsIn(w, h);
