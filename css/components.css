@@ -240,7 +240,7 @@
 #meter .meter {
   width: 100%;
   height: 100%;
-  background-color: #E8E5DD;
+  background-color: #eee;
   position: relative;
   box-shadow: inset 0 0px 3px rgba(0, 0, 0, 0.2), inset 0 2px 1px rgba(0, 0, 0, 0.3);
 }

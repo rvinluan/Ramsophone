@@ -28,7 +28,7 @@ Controls.applyRandom = function() {
     }
     if(knobs.length > 0) {
       knobs.each(function (j, f) {
-        var val = Math.round(Math.random()*100);
+        var val = Math.round(Math.random()*360);
         $(f).attr("data-val", val);
         $(f).find(".indicator").css("transform", "rotate("+val+"deg)");
       })
