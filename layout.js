@@ -4,9 +4,32 @@ Array.prototype.randomIn = function() {
 
 var Modules = {};
 var Layout = {
-  hasSpeaker: false,
   hasButton: false
 }
+
+Modules.allSpeakers = [
+  {
+    name: "speaker-1",
+    width: 6,
+    height: 6
+  },
+  {
+    name: "speaker-massive-1",
+    width: 8,
+    height: 4
+  },
+  {
+    name: "speaker-massive-2",
+    width: 4,
+    height: 8
+  }
+]
+
+Modules.onButton = {
+  name: "button-single",
+  width: 2,
+  height: 2
+},
 
 Modules.modulesInSizeOrder = [
     {
@@ -16,18 +39,13 @@ Modules.modulesInSizeOrder = [
     },
     {
       name: "empty",
-      width: 1,
-      height: 4
+      width: 2,
+      height: 1
     },
     {
       name: "empty",
       width: 2,
       height: 2
-    },
-    {
-      name: "button-single",
-      width: 1,
-      height: 1
     },
     // {
     //   name: "knob-single",
@@ -68,21 +86,6 @@ Modules.modulesInSizeOrder = [
       name: "meter",
       width: 1,
       height: 4
-    },
-    {
-      name: "speaker-1",
-      width: 6,
-      height: 6
-    },
-    {
-      name: "speaker-massive-1",
-      width: 8,
-      height: 4
-    },
-    {
-      name: "speaker-massive-2",
-      width: 4,
-      height: 8
     }
 ]
 
@@ -122,23 +125,10 @@ Layout.fillSpace = function(x, y, w, h) {
   } else {
     p = Modules.getRandomThatFitsIn(w, h);
   }
-  //make sure there's only one speaker
-  if(p.name.indexOf("speaker") !== -1) {
-    if(Layout.hasSpeaker) {
-      Layout.fillSpace(x, y, w, h); //try again
-      return;
-    } else {
-      Layout.hasSpeaker = true;
-    }
-  }
-  //make sure there's only one button
-  if(p.name.indexOf("button") !== -1) {
-    if(Layout.hasButton) {
-      Layout.fillSpace(x, y, w, h); //try again
-      return;
-    } else {
-      Layout.hasButton = true;
-    }
+  //add the on button
+  if(w >=2 && h >= 2 && !Layout.hasButton) {
+    p = Modules.onButton;
+    Layout.hasButton = true;
   }
   Modules.constructDiv(p, x, y);
   if(w - p.width > 0) {
@@ -147,4 +137,33 @@ Layout.fillSpace = function(x, y, w, h) {
   if(h - p.height > 0) {
     Layout.fillSpace(x, y + p.height, w, h - p.height);
   }
+}
+
+Layout.init = function(x, y, w, h) {
+  var p = Modules.allSpeakers.randomIn();
+  var tempX = 0;
+  var tempY = 0;
+  var leewayX = w - p.width;
+  var leewayY = h - p.height;
+  //randomly align to right instead of left
+  if(Math.random() > 0.5) {
+    tempX = leewayX;
+  }
+  //randomly assign to bottom instead of top
+  if(Math.random() > 0.5) {
+    tempY = leewayY;
+  }
+  if(w - p.width > 0) {
+    if(tempX == 0)
+      Layout.fillSpace(x + p.width, tempY, w - p.width, p.height); //left
+    else
+      Layout.fillSpace(x, tempY, w - p.width, p.height); //right
+  }
+  if(h - p.height > 0) {
+    if(tempY == 0)
+      Layout.fillSpace(x, y + p.height, w, h - p.height); //top
+    else 
+      Layout.fillSpace(x, y, w, h - p.height); //bottom
+  }
+  Modules.constructDiv(p, tempX, tempY);
 }
