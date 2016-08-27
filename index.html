@@ -76,110 +76,49 @@
 
           <div id="speaker-1">
             <div class="speaker-box">
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
+              <div class="speaker-hole" data-clone="30"></div>
+            </div>
+          </div>
+
+          <div id="speaker-2">
+            <div class="speaker-box">
+              <div class="row"> <div class="speaker-hole" data-clone="7"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="11"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="11"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="13"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="13"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="13"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="13"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="13"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="13"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="11"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="11"></div> </div>
+              <div class="row"> <div class="speaker-hole" data-clone="7"></div> </div>
             </div>
           </div>
 
           <div id="speaker-massive-2">
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
+              <div class="speaker-hole" data-clone="25"></div>
           </div>
 
           <div id="speaker-massive-1">
             <div class="left-half">
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
+              <div class="speaker-hole" data-clone="16"></div>
             </div>
             <div class="right-half">
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
-              <div class="speaker-hole"></div>
+              <div class="speaker-hole" data-clone="16"></div>
             </div>
           </div>
 
       </main>
+      <script src="js/music.js"></script>
       <script src="js/layout.js"></script>
       <script src="js/controls.js"></script>
       <script>
         Controls.bindEvents();
         Layout.init(0,0,8,8);
         Controls.applyRandom();
+        Music.init();
       </script>
     </body>
 </html>

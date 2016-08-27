@@ -43,6 +43,12 @@ Controls.applyRandom = function() {
   })
 }
 
+Controls.attachToControl = function(dom) {
+  if(dom.attr("id").indexOf("button") !== -1) {
+    dom.on("click", Music.controlSurfaces["button"][0]);
+  }
+}
+
 Controls.bindEvents = function() {
   //debug
   $(document).on("keydown", function (e) {
@@ -101,7 +107,6 @@ Controls.knobControls = function(knobElement, dy) {
 Controls.sliderControls = function(sliderElement, dx) {
   var desiredVal = Controls.originalValue + dx;
   var val = clamp(desiredVal, 0, sliderElement.parent().width() - sliderElement.width() - 5)
-  console.log(val);
   sliderElement.attr("data-val", val);
   sliderElement.css("left", val);
   $("html").css("cursor", "ew-resize");

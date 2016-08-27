@@ -14,6 +14,21 @@ Modules.allSpeakers = [
     height: 6
   },
   {
+    name: "speaker-1",
+    width: 8,
+    height: 4
+  },
+  {
+    name: "speaker-2",
+    width: 6,
+    height: 6
+  },
+  {
+    name: "speaker-2",
+    width: 8,
+    height: 5
+  },
+  {
     name: "speaker-massive-1",
     width: 8,
     height: 4
@@ -112,7 +127,21 @@ Modules.getRandomThatFitsIn = function(w, h) {
 Modules.constructDiv = function(obj, x, y) {
   var parent = $(".grid-master");
   var template = $("#all-component-templates").find("#" + obj.name).clone();
+  //the speakers need populating the speaker holes
+  if(template.find("[data-clone]").length > 0) {
+    template.find("[data-clone]").each(function (i, e) {
+      var e = $(e);
+      var times = $(e).attr("data-clone");
+      e.removeAttr("data-clone");
+      for(var i = 0; i < times - 1; i++) {
+        e.after(e.clone());
+      }
+    });
+  }
   template.addClass("module"+" grid-x-"+x+" grid-y-"+y+""+" grid-width-"+obj.width+" grid-height-"+obj.height);
+  if(template.attr("id") !== "empty") {
+    Controls.attachToControl(template);
+  }
   parent.append(template);
   return template;
 }

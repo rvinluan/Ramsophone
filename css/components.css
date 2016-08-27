@@ -57,12 +57,14 @@
 /* line 73, ../scss/components.scss */
 #speaker-massive-1,
 #speaker-massive-2,
+#speaker-2,
 #speaker-1 {
   flex-wrap: wrap;
 }
-/* line 78, ../scss/components.scss */
+/* line 79, ../scss/components.scss */
 #speaker-massive-1 .speaker-hole,
 #speaker-massive-2 .speaker-hole,
+#speaker-2 .speaker-hole,
 #speaker-1 .speaker-hole {
   width: 100%;
   background: #333;
@@ -72,21 +74,21 @@
   box-shadow: 0 2px 1px #FFF;
 }
 
-/* line 88, ../scss/components.scss */
+/* line 89, ../scss/components.scss */
 #speaker-1 {
   padding: 10%;
 }
-/* line 91, ../scss/components.scss */
+/* line 92, ../scss/components.scss */
 #speaker-1 .speaker-box {
   width: 190px;
-  height: 190px;
+  height: 170px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
 }
-/* line 101, ../scss/components.scss */
+/* line 102, ../scss/components.scss */
 #speaker-1 .speaker-hole {
   width: 10px;
   height: 10px;
@@ -95,42 +97,59 @@
 }
 
 /* line 110, ../scss/components.scss */
+#speaker-2 {
+  padding: 10%;
+}
+/* line 113, ../scss/components.scss */
+#speaker-2 .row {
+  display: flex;
+  justify-content: center;
+}
+/* line 118, ../scss/components.scss */
+#speaker-2 .speaker-hole {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  margin: 4px;
+}
+
+/* line 127, ../scss/components.scss */
 #speaker-massive-1 .left-half,
 #speaker-massive-1 .right-half {
   width: 40%;
 }
-/* line 115, ../scss/components.scss */
+/* line 132, ../scss/components.scss */
 #speaker-massive-1 .left-half {
   margin-right: 10px;
 }
-/* line 120, ../scss/components.scss */
+/* line 137, ../scss/components.scss */
 #speaker-massive-1.grid-x-0 {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 121, ../scss/components.scss */
+/* line 138, ../scss/components.scss */
 #speaker-massive-1.grid-y-0 {
   padding-top: 0;
 }
-/* line 122, ../scss/components.scss */
+/* line 139, ../scss/components.scss */
 #speaker-massive-1.grid-y-3 {
   padding-bottom: 0;
 }
 
-/* line 125, ../scss/components.scss */
+/* line 142, ../scss/components.scss */
 #speaker-massive-2 {
   padding: 100px;
 }
-/* line 129, ../scss/components.scss */
+/* line 146, ../scss/components.scss */
 #speaker-massive-2.grid-y-0 {
   padding-top: 0;
   padding-bottom: 0;
 }
-/* line 130, ../scss/components.scss */
+/* line 147, ../scss/components.scss */
 #speaker-massive-2.grid-x-0 {
   padding-left: 0;
 }
-/* line 131, ../scss/components.scss */
+/* line 148, ../scss/components.scss */
 #speaker-massive-2.grid-x-3 {
   padding-right: 0;
 }
@@ -140,7 +159,7 @@
   *   Buttons
   * 
 */
-/* line 141, ../scss/components.scss */
+/* line 158, ../scss/components.scss */
 #button-single .button-well {
   display: flex;
   border-radius: 50%;
@@ -149,7 +168,7 @@
   width: 18%;
   height: 18%;
 }
-/* line 150, ../scss/components.scss */
+/* line 167, ../scss/components.scss */
 #button-single .button {
   position: relative;
   left: 0px;
@@ -162,7 +181,7 @@
   transition: all .2s;
   box-shadow: inset -2px 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 0 8px 8px rgba(128, 128, 128, 0.1), inset -10px 4px 10px 2px rgba(0, 0, 0, 0.05), 0px 0px rgba(0, 0, 0, 0.1), -0px 1px 2px rgba(0, 0, 0, 0.05), -1px 2px 2px rgba(0, 0, 0, 0.04444), -2px 3px 2px rgba(0, 0, 0, 0.03889), -3px 4px 2px rgba(0, 0, 0, 0.03333), -4px 5px 2px rgba(0, 0, 0, 0.02778), -5px 6px 2px rgba(0, 0, 0, 0.02222), -6px 7px 2px rgba(0, 0, 0, 0.01667), -7px 8px 2px rgba(0, 0, 0, 0.01111), -8px 9px 2px rgba(0, 0, 0, 0.00556), -9px 10px 2px transparent;
 }
-/* line 166, ../scss/components.scss */
+/* line 183, ../scss/components.scss */
 #button-single .button.depressed {
   top: 0;
   background: linear-gradient(to right, #ca244b, #af2505);
@@ -175,13 +194,13 @@
   *   Knobs
   * 
 */
-/* line 181, ../scss/components.scss */
+/* line 198, ../scss/components.scss */
 #knob-series-small,
 #knob-series-medium,
 #knob-single {
   display: flex;
 }
-/* line 186, ../scss/components.scss */
+/* line 203, ../scss/components.scss */
 #knob-series-small .knob,
 #knob-series-medium .knob,
 #knob-single .knob {
@@ -192,7 +211,7 @@
   position: relative;
   box-shadow: inset 0 -3px 1px rgba(0, 0, 0, 0.2), inset 0 3px 1px rgba(255, 255, 255, 0.9), 0px 0px rgba(0, 0, 0, 0.1), -0px 1px 2px rgba(0, 0, 0, 0.05), -1px 2px 2px rgba(0, 0, 0, 0.04737), -2px 3px 2px rgba(0, 0, 0, 0.04474), -3px 4px 2px rgba(0, 0, 0, 0.04211), -4px 5px 2px rgba(0, 0, 0, 0.03947), -5px 6px 2px rgba(0, 0, 0, 0.03684), -6px 7px 2px rgba(0, 0, 0, 0.03421), -7px 8px 2px rgba(0, 0, 0, 0.03158), -8px 9px 2px rgba(0, 0, 0, 0.02895), -9px 10px 2px rgba(0, 0, 0, 0.02632), -10px 11px 2px rgba(0, 0, 0, 0.02368), -11px 12px 2px rgba(0, 0, 0, 0.02105), -12px 13px 2px rgba(0, 0, 0, 0.01842), -13px 14px 2px rgba(0, 0, 0, 0.01579), -14px 15px 2px rgba(0, 0, 0, 0.01316), -15px 16px 2px rgba(0, 0, 0, 0.01053), -16px 17px 2px rgba(0, 0, 0, 0.00789), -17px 18px 2px rgba(0, 0, 0, 0.00526), -18px 19px 2px rgba(0, 0, 0, 0.00263), -19px 20px 2px transparent;
 }
-/* line 198, ../scss/components.scss */
+/* line 215, ../scss/components.scss */
 #knob-series-small .knob .indicator,
 #knob-series-medium .knob .indicator,
 #knob-single .knob .indicator {
@@ -208,13 +227,13 @@
   background-color: #EA5D5D;
 }
 
-/* line 214, ../scss/components.scss */
+/* line 231, ../scss/components.scss */
 #knob-series-small .knob {
   width: 70%;
   height: 70%;
   padding-bottom: 0;
 }
-/* line 219, ../scss/components.scss */
+/* line 236, ../scss/components.scss */
 #knob-series-small .knob .indicator {
   background-color: #666;
   width: 3px;
@@ -225,7 +244,7 @@
   transform-origin: 0 30px;
 }
 
-/* line 231, ../scss/components.scss */
+/* line 248, ../scss/components.scss */
 #knob-series-medium {
   padding: 5%;
   justify-content: space-between;
@@ -236,12 +255,12 @@
   *   Sliders
   * 
 */
-/* line 242, ../scss/components.scss */
+/* line 259, ../scss/components.scss */
 #slider-horizontal-3,
 #slider-horizontal-4 {
   padding: 20px;
 }
-/* line 246, ../scss/components.scss */
+/* line 263, ../scss/components.scss */
 #slider-horizontal-3 .slider-well,
 #slider-horizontal-4 .slider-well {
   width: 100%;
@@ -250,7 +269,7 @@
   background-color: black;
   position: relative;
 }
-/* line 254, ../scss/components.scss */
+/* line 271, ../scss/components.scss */
 #slider-horizontal-3 .slider,
 #slider-horizontal-4 .slider {
   position: absolute;
@@ -271,11 +290,11 @@
   *   Meters
   * 
 */
-/* line 279, ../scss/components.scss */
+/* line 296, ../scss/components.scss */
 #meter {
   padding: 20px 20px 18px 20px;
 }
-/* line 282, ../scss/components.scss */
+/* line 299, ../scss/components.scss */
 #meter .meter {
   width: 100%;
   height: 100%;
@@ -283,7 +302,7 @@
   position: relative;
   box-shadow: inset 0 0px 3px rgba(0, 0, 0, 0.2), inset 0 2px 1px rgba(0, 0, 0, 0.3);
 }
-/* line 291, ../scss/components.scss */
+/* line 308, ../scss/components.scss */
 #meter .meter .indicator {
   content: "";
   width: 100%;
@@ -298,7 +317,7 @@
   *   Switches
   * 
 */
-/* line 310, ../scss/components.scss */
+/* line 327, ../scss/components.scss */
 #switch-series-small .switch-well,
 #switch-series-medium .switch-well {
   display: flex;
@@ -309,7 +328,7 @@
   width: 80%;
   height: 40%;
 }
-/* line 320, ../scss/components.scss */
+/* line 337, ../scss/components.scss */
 #switch-series-small .switch,
 #switch-series-medium .switch {
   position: relative;
@@ -325,37 +344,37 @@
   transition: all .2s;
   box-shadow: inset -2px 0 1px 1px rgba(255, 255, 255, 0.7), inset 0 0 8px 8px rgba(128, 128, 128, 0.1), inset -10px 4px 10px 2px rgba(0, 0, 0, 0.05), 0px 0px rgba(0, 0, 0, 0.1), -0px 1px 2px rgba(0, 0, 0, 0.05), -1px 2px 2px rgba(0, 0, 0, 0.04737), -2px 3px 2px rgba(0, 0, 0, 0.04474), -3px 4px 2px rgba(0, 0, 0, 0.04211), -4px 5px 2px rgba(0, 0, 0, 0.03947), -5px 6px 2px rgba(0, 0, 0, 0.03684), -6px 7px 2px rgba(0, 0, 0, 0.03421), -7px 8px 2px rgba(0, 0, 0, 0.03158), -8px 9px 2px rgba(0, 0, 0, 0.02895), -9px 10px 2px rgba(0, 0, 0, 0.02632), -10px 11px 2px rgba(0, 0, 0, 0.02368), -11px 12px 2px rgba(0, 0, 0, 0.02105), -12px 13px 2px rgba(0, 0, 0, 0.01842), -13px 14px 2px rgba(0, 0, 0, 0.01579), -14px 15px 2px rgba(0, 0, 0, 0.01316), -15px 16px 2px rgba(0, 0, 0, 0.01053), -16px 17px 2px rgba(0, 0, 0, 0.00789), -17px 18px 2px rgba(0, 0, 0, 0.00526), -18px 19px 2px rgba(0, 0, 0, 0.00263), -19px 20px 2px transparent;
 }
-/* line 338, ../scss/components.scss */
+/* line 355, ../scss/components.scss */
 #switch-series-small .switch:first-child,
 #switch-series-medium .switch:first-child {
   border-bottom-left-radius: 4px;
 }
-/* line 342, ../scss/components.scss */
+/* line 359, ../scss/components.scss */
 #switch-series-small .switch:last-child,
 #switch-series-medium .switch:last-child {
   border-bottom-right-radius: 4px;
 }
-/* line 347, ../scss/components.scss */
+/* line 364, ../scss/components.scss */
 #switch-series-small .switch:nth-child(1),
 #switch-series-medium .switch:nth-child(1) {
   z-index: 4;
 }
-/* line 347, ../scss/components.scss */
+/* line 364, ../scss/components.scss */
 #switch-series-small .switch:nth-child(2),
 #switch-series-medium .switch:nth-child(2) {
   z-index: 3;
 }
-/* line 347, ../scss/components.scss */
+/* line 364, ../scss/components.scss */
 #switch-series-small .switch:nth-child(3),
 #switch-series-medium .switch:nth-child(3) {
   z-index: 2;
 }
-/* line 347, ../scss/components.scss */
+/* line 364, ../scss/components.scss */
 #switch-series-small .switch:nth-child(4),
 #switch-series-medium .switch:nth-child(4) {
   z-index: 1;
 }
-/* line 352, ../scss/components.scss */
+/* line 369, ../scss/components.scss */
 #switch-series-small .switch.depressed,
 #switch-series-medium .switch.depressed {
   z-index: 0;
@@ -364,32 +383,32 @@
   border-bottom: 4px solid #999;
   box-shadow: inset -1px 0 1px 1px rgba(255, 255, 255, 0.4), inset 0 0 8px 8px rgba(128, 128, 128, 0.1), inset -10px 4px 10px 2px rgba(128, 128, 128, 0.05), inset -10px 4px 10px 2px rgba(128, 128, 128, 0.05), 0px 0px rgba(0, 0, 0, 0.1), -0px 1px 2px rgba(0, 0, 0, 0.05), -1px 2px 2px rgba(0, 0, 0, 0.04643), -2px 3px 2px rgba(0, 0, 0, 0.04286), -3px 4px 2px rgba(0, 0, 0, 0.03929), -4px 5px 2px rgba(0, 0, 0, 0.03571), -5px 6px 2px rgba(0, 0, 0, 0.03214), -6px 7px 2px rgba(0, 0, 0, 0.02857), -7px 8px 2px rgba(0, 0, 0, 0.025), -8px 9px 2px rgba(0, 0, 0, 0.02143), -9px 10px 2px rgba(0, 0, 0, 0.01786), -10px 11px 2px rgba(0, 0, 0, 0.01429), -11px 12px 2px rgba(0, 0, 0, 0.01071), -12px 13px 2px rgba(0, 0, 0, 0.00714), -13px 14px 2px rgba(0, 0, 0, 0.00357), -14px 15px 2px transparent;
 }
-/* line 366, ../scss/components.scss */
+/* line 383, ../scss/components.scss */
 #switch-series-small .switch:first-child,
 #switch-series-medium .switch:first-child {
   margin-left: 0;
 }
 
-/* line 373, ../scss/components.scss */
+/* line 390, ../scss/components.scss */
 #switch-series-small .switch-well {
   height: 30%;
   border-radius: 2px;
 }
-/* line 377, ../scss/components.scss */
+/* line 394, ../scss/components.scss */
 #switch-series-small .switch {
   width: 60%;
   border-radius: 0px;
   border-bottom: 8px solid #aaa;
 }
-/* line 382, ../scss/components.scss */
+/* line 399, ../scss/components.scss */
 #switch-series-small .switch:first-child {
   border-bottom-left-radius: 2px;
 }
-/* line 386, ../scss/components.scss */
+/* line 403, ../scss/components.scss */
 #switch-series-small .switch:last-child {
   border-bottom-right-radius: 2px;
 }
-/* line 390, ../scss/components.scss */
+/* line 407, ../scss/components.scss */
 #switch-series-small .switch.depressed {
   top: -1px;
 }
