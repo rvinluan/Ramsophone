@@ -115,10 +115,11 @@
       <script src="js/layout.js"></script>
       <script src="js/controls.js"></script>
       <script>
+        Music.init();
         Controls.bindEvents();
         Layout.init(0,0,8,8);
-        Controls.applyRandom();
-        Music.init();
+        Controls.zeroOut();
+        // Controls.applyRandom();
       </script>
     </body>
 </html>

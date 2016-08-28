@@ -3,7 +3,7 @@ var Music = {}
 Music.init = function() {
 
 //create a synth and connect it to the master output (your speakers)
-var synth = new Tone.Synth({
+Music.synth = new Tone.Synth({
   oscillator: {
     type: "fatsawtooth",
     detune: 0,
@@ -17,33 +17,50 @@ var synth = new Tone.Synth({
   }
 })
 
-var freeverb = new Tone.Freeverb().toMaster();
+Music.freeverb = new Tone.Freeverb();
+Music.filter = new Tone.Filter(100, "highpass");
 
-synth.connect(freeverb);
+Music.synth.connect(Music.filter);
+Music.filter.connect(Music.freeverb);
+Music.freeverb.connect(Tone.Master);
 
-var seq = new Tone.Pattern(function(time, note){
-  synth.triggerAttackRelease(note, "8n", time);
+Music.seq = new Tone.Pattern(function(time, note){
+  Music.synth.triggerAttackRelease(note, "8n", time);
 }, ["C4", "E4", "G4", "B4", "C5"], "upDown");
 
-seq.interval = "8n";
-seq.start("0m");
-seq.loop = true;
+Music.seq.interval = "8n";
+Music.seq.start("0m");
+Music.seq.loop = true;
 
 Tone.Transport.bpm.value = 140
 }
 
 Music.controlFunctions = {
-  transportOn: function() {
-    var val = parseInt($(this).find(".button").attr("data-val"), 10);
-    val ? Tone.Transport.start() : Tone.Transport.stop();
+  transportOn: function(newVal) {
+    newVal === 1 ? Tone.Transport.start() : Tone.Transport.stop();
+  },
+  filterFrequency: function(newValsArray) {
+    var newVal = map( newValsArray[0], 0, 360, 0, 10000 );
+    Music.filter.frequency.value = newVal;
+  },
+  envelopeADSR: function (newValsArray) {
+    Music.synth.envelope.attack = map( newValsArray[0], 0, 360, 0, 0.5 );
+    Music.synth.envelope.decay = map( newValsArray[1], 0, 360, 0.05, 0.6 );
+    Music.synth.envelope.sustain = map( newValsArray[2], 0, 360, 0, 0.5 );
   }
 }
 
 Music.controlSurfaces = {
-  button: [
+  "button": [
     Music.controlFunctions.transportOn
   ],
-  slider: [],
-  knob: [],
-  switch: []
+  "slider": [],
+  "knob-3": [
+    Music.controlFunctions.envelopeADSR
+  ],
+  "knob-1": [
+    Music.controlFunctions.filterFrequency
+  ],
+  "switch-2": [],
+  "switch-4": []
 }

@@ -13,6 +13,33 @@ var Controls = {
   isCurrentlyChanging: false
 };
 
+Controls.zeroOut = function() {
+  $(".grid-master .module").each(function (i, el) {
+    var e = $(el);
+    var switches = e.find(".switch");
+    var knobs = e.find(".knob");
+    var sliders = e.find(".slider");
+    if(switches.length > 0) {
+      switches.each(function (j, f) {
+        $(f).attr("data-val", 0);
+        $(f).siblings().removeClass("depressed");
+      })
+    }
+    if(knobs.length > 0) {
+      knobs.each(function (j, f) {
+        $(f).attr("data-val", 0);
+        $(f).find(".indicator").css("transform", "rotate("+0+"deg)");
+      })
+    }
+    if(sliders.length > 0) {
+      sliders.each(function (j, f) {
+        $(f).attr("data-val", 0);
+        $(f).css("left", 0);
+      })
+    }
+  })
+}
+
 Controls.applyRandom = function() {
   $(".grid-master .module").each(function (i, el) {
     var e = $(el);
@@ -24,6 +51,7 @@ Controls.applyRandom = function() {
         var val = Math.random() > 0.5 ? 0 : 1;
         $(f).attr("data-val", val);
         val ? $(f).addClass("depressed") : $(f).removeClass("depressed");
+        $(f).siblings().removeClass("depressed");
       })
     }
     if(knobs.length > 0) {
@@ -45,7 +73,13 @@ Controls.applyRandom = function() {
 
 Controls.attachToControl = function(dom) {
   if(dom.attr("id").indexOf("button") !== -1) {
-    dom.on("click", Music.controlSurfaces["button"][0]);
+    dom.data("controlSurface", Music.controlSurfaces["button"][0]);
+  }
+  if(dom.attr("id") == "knob-series-medium") {
+    dom.data("controlSurface", Music.controlSurfaces["knob-3"][0]);
+  }
+  if(dom.attr("id") == "knob-series-small") {
+    dom.data("controlSurface", Music.controlSurfaces["knob-1"][0]);
   }
 }
 
@@ -98,10 +132,16 @@ Controls.bindEvents = function() {
 
 Controls.knobControls = function(knobElement, dy) {
   var desiredVal = Controls.originalValue - (dy*2);
-  var val = clamp(desiredVal, 0, 360)
+  var val = clamp(desiredVal, 0, 360);
+  var f = knobElement.closest(".module").data("controlSurface");
   knobElement.attr("data-val", val);
   knobElement.find(".indicator").css("transform", "rotate("+val+"deg)");
   $("html").css("cursor", "ns-resize");
+  //pass all sibling knob values
+  var valsArray = knobElement.siblings().addBack().map(function (i, e) {
+    return parseInt($(e).attr("data-val"), 10);
+  })
+  f.call(knobElement, valsArray);
 }
 
 Controls.sliderControls = function(sliderElement, dx) {
@@ -113,14 +153,16 @@ Controls.sliderControls = function(sliderElement, dx) {
 }
 
 Controls.switchControls = function(switchElement) {
-  // if(switchElement.closest(".module").hasClass("radio")) {
-  //   switchElement.siblings().removeClass("depressed");
-  // }
+  switchElement.siblings().removeClass("depressed");
   switchElement.toggleClass("depressed");
   switchElement.attr("data-val", switchElement.hasClass("depressed") ? 1 : 0);
 }
 
 Controls.buttonControls = function(buttonElement) {
+  var f = buttonElement.closest(".module").data("controlSurface"),
+      val;
   buttonElement.toggleClass("depressed");
-  buttonElement.attr("data-val", buttonElement.hasClass("depressed") ? 1 : 0);
+  val = buttonElement.hasClass("depressed") ? 1 : 0;
+  buttonElement.attr("data-val", val);
+  f.call(buttonElement, val);
 }
