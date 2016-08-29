@@ -3,10 +3,10 @@ var Music = {}
 Music.init = function() {
 
 Music.melody = {
-  key: "c",
-  mode: "major",
+  key: "c,c#,d,d#,e,f,f#,g,g#,a,bb,b".split(",").randomIn(),
+  mode: "major,minor,mixolydian,blues".split(",").randomIn(),
   degree: 1,
-  quality: "maj7"
+  quality: "maj7,maj7,maj7,maj7,maj7,maj7,maj7,maj7,min7,7b5,aug7,dim7".split(",").randomIn()
 }
 
 //create a synth and connect it to the master output (your speakers)
@@ -65,7 +65,8 @@ Music.generateArpegio = function(key, scale, deg, quality) {
     degree: d,
     quality: q
   }
-  var root = teoria.note(k + "4");
+  var octave = "2,3,4,5".split(",").randomIn();
+  var root = teoria.note(k + octave);
   var scl = root.scale(s);
   var chord = scl.get(d).chord(q);
   var notesArray = chord.notes();
@@ -104,15 +105,6 @@ Music.controlFunctions = {
     Music.synth.envelope.attack = map( newValsArray[0], 0, 360, 0, 0.5 );
     Music.synth.envelope.decay = map( newValsArray[1], 0, 360, 0.05, 0.6 );
     Music.synth.envelope.sustain = map( newValsArray[2], 0, 360, 0, 0.5 );
-  },
-  switchFilterType: function(newValsArray) {
-    if(newValsArray[0] == 1) {
-      //minor
-      Music.filter.type = "highpass";
-    } else if(newValsArray[1] == 1) {
-      //blues
-      Music.filter.type = "lowpass";
-    }
   },
   chord: function (newValsArray) {
     var checkIfAllZero = newValsArray.toArray().reduce(function (prev, cur) {
@@ -180,7 +172,7 @@ Music.controlSurfaces = {
   ],
   "switch-2": [
     Music.controlFunctions.chord,
-    Music.controlFunctions.oscillatorType
+    Music.controlFunctions.oscillatorType,
   ],
   "switch-4": [
     Music.controlFunctions.chord,

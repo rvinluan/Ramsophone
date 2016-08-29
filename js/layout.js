@@ -55,7 +55,7 @@ Modules.modulesInSizeOrder = [
     {
       name: "empty",
       width: 2,
-      height: 1
+      height: 4
     },
     {
       name: "empty",
