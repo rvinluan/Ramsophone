@@ -2,6 +2,13 @@ var Music = {}
 
 Music.init = function() {
 
+Music.melody = {
+  key: "c",
+  mode: "major",
+  degree: 1,
+  quality: "maj7"
+}
+
 //create a synth and connect it to the master output (your speakers)
 Music.synth = new Tone.Synth({
   oscillator: {
@@ -26,15 +33,47 @@ Music.filter.connect(Music.freeverb);
 Music.freeverb.connect(Music.pan);
 Music.pan.connect(Tone.Master);
 
+Music.meter = new Tone.Meter();
+Music.pan.connect(Music.meter);
+
 Music.seq = new Tone.Pattern(function(time, note){
   Music.synth.triggerAttackRelease(note, "8n", time);
-}, ["C4", "E4", "G4", "B4", "C5"], "upDown");
+}, [], "upDown");
 
 Music.seq.interval = "8n";
 Music.seq.start("0m");
 Music.seq.loop = true;
+Music.generateArpegio();
 
-Tone.Transport.bpm.value = 140
+Tone.Transport.bpm.value = 150
+
+//special function to control the meters
+setInterval(function () {
+  $(".grid-master .meter .indicator").css("top", map(Music.meter.value, 0, 1.6, 200, 10));
+}, 20)
+
+}
+
+Music.generateArpegio = function(key, scale, deg, quality) {
+  var k = key ? key : Music.melody.key;
+  var s = scale ? scale : Music.melody.mode;
+  var d = deg ? deg : Music.melody.degree;
+  var q = quality ? quality : Music.melody.quality;
+  Music.melody = {
+    key: k,
+    mode: s,
+    degree: d,
+    quality: q
+  }
+  var root = teoria.note(k + "4");
+  var scl = root.scale(s);
+  var chord = scl.get(d).chord(q);
+  var notesArray = chord.notes();
+  notesArray.push( chord.notes()[0].interval("P8") )
+  var noteNames = notesArray.map( function (e) {
+    return e.toString();
+  } );
+  Music.seq.values = noteNames;
 }
 
 Music.controlFunctions = {
@@ -66,16 +105,29 @@ Music.controlFunctions = {
     Music.synth.envelope.decay = map( newValsArray[1], 0, 360, 0.05, 0.6 );
     Music.synth.envelope.sustain = map( newValsArray[2], 0, 360, 0, 0.5 );
   },
-  scale: function (newValsArray) {
-    if(newValsArray[0] == 0 && newValsArray[1] == 0) {
-      //major
-      Music.seq.values = ["C4", "E4", "G4", "B4", "C5"];
-    } else if(newValsArray[0] == 1) {
+  switchFilterType: function(newValsArray) {
+    if(newValsArray[0] == 1) {
       //minor
-      Music.seq.values = ["C4", "Eb4", "G4", "Bb4", "C5"];
+      Music.filter.type = "highpass";
     } else if(newValsArray[1] == 1) {
       //blues
-      Music.seq.values = ["C4", "Eb4", "F4", "F#4", "G4", "Bb4", "C5"];
+      Music.filter.type = "lowpass";
+    }
+  },
+  chord: function (newValsArray) {
+    var checkIfAllZero = newValsArray.toArray().reduce(function (prev, cur) {
+      return prev += cur
+    }, 0);
+    if(checkIfAllZero == 0) {
+      Music.generateArpegio(null, null, null, "maj7");
+    } else if(newValsArray[0] == 1) {
+      Music.generateArpegio(null, null, null, "min7");
+    } else if(newValsArray[1] == 1) {
+      Music.generateArpegio(null, null, null, "aug7");
+    } else if(newValsArray[2] && newValsArray[2] == 1) {
+      Music.generateArpegio(null, null, null, "dim7");
+    } else if(newValsArray[3] && newValsArray[3] == 1) {
+      Music.generateArpegio(null, null, null, "7b5");
     }
   },
   oscillatorType: function(newValsArray) {
@@ -92,6 +144,22 @@ Music.controlFunctions = {
       Music.synth.oscillator.type = "fatsquare4";
     } else if(newValsArray[3] && newValsArray[3] == 1) {
       Music.synth.oscillator.type = "amsine";
+    }
+  },
+  scaleDegree: function(newValsArray) {
+    var checkIfAllZero = newValsArray.toArray().reduce(function (prev, cur) {
+      return prev += cur
+    }, 0);
+    if(checkIfAllZero == 0) {
+      Music.generateArpegio(null, null, 1, null);
+    } else if(newValsArray[0] == 1) {
+      Music.generateArpegio(null, null, 2, null);
+    } else if(newValsArray[1] == 1) {
+      Music.generateArpegio(null, null, 3, null);
+    } else if(newValsArray[2] && newValsArray[2] == 1) {
+      Music.generateArpegio(null, null, 4, null);
+    } else if(newValsArray[3] && newValsArray[3] == 1) {
+      Music.generateArpegio(null, null, 5, null);
     }
   }
 }
@@ -111,10 +179,12 @@ Music.controlSurfaces = {
     Music.controlFunctions.envelopeADSR
   ],
   "switch-2": [
-    Music.controlFunctions.scale,
+    Music.controlFunctions.chord,
     Music.controlFunctions.oscillatorType
   ],
   "switch-4": [
-    Music.controlFunctions.oscillatorType
+    Music.controlFunctions.chord,
+    Music.controlFunctions.oscillatorType,
+    Music.controlFunctions.scaleDegree
   ]
 }
