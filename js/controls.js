@@ -21,6 +21,11 @@ Controls.meta = function() {
   setTimeout(function () {
     $('.help').css("opacity", 1);
   }, 1000)
+  $('body').on('click', function (e) {
+    if(e.target == document.body) {
+      $("main").removeClass("viewHelp");
+    }
+  })
 }
 
 Controls.zeroOut = function() {
