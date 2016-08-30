@@ -1,25 +1,127 @@
 body {
   background-color: #444;
-  font: 600 normal 14px/1 "Helvetica Neue", sans-serif;
+  font: 200 normal 20px/1 "Helvetica Neue", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -webkit-perspective: 1000px;
+  min-height: 100vh;
 }
 
 $grid-unit: 60px;
 
 main {
   margin: auto;
-  border-radius: 3px;
-  background-color: #eee;
-  width: ($grid-unit * 8);
-  height: ($grid-unit * 8);
+  width: ($grid-unit * 10);
+  height: ($grid-unit * 10);
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.cube {
+  width: ($grid-unit * 10);
+  height: ($grid-unit * 10);
+  transform-style: preserve-3d;
+  transform: translateZ(-300px);
+  transition: all .5s;
+
+  .viewHelp & {
+    transform: translateZ(-300px) rotateX(90deg);
+  }
+}
+
+.front-face,
+.about-face {
+  width: 100%;
+  height: 100%;
+  padding: $grid-unit;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background-color: #eee;
   box-shadow: inset 0 5px 5px #FFF,
                 0 6px 10px #000,
                 0 15px 20px rgba(0,0,0,0.2);
+  transition: all .5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
 
-  padding: $grid-unit;
+  .viewHelp & {
+    box-shadow: none;
+  }
+}
+
+.front-face {
+  transform: rotateX(0deg) translateZ(300px);
+}
+
+.about-face {
+  transform: rotateX(-90deg) translateZ(300px);
+
+  h2 {
+    font-size: 50px;
+    margin-top: 0;
+    line-height: 1.1;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 20px 0 0 0;
+    font-weight: 400;
+    max-width: 28em;
+    line-height: 1.4;
+  }
+
+  code {
+    width: 100%;
+    display: block;
+    background-color: white;
+    font-size: 14px;
+    padding: 10px;
+    margin-top: 12px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+  }
+
+  .links {
+    max-width: none;
+    margin-top: 20px;
+  }
+
+  a {
+    color: #ce2f0a;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.help {
+  width: 12px;
+  height: 12px;
+  font-size: 14px;
+  position: absolute;
+  right: -60px;
+  color: white;
+  bottom: 0;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 3px 3px;
+  text-indent: 2px;
+  display: block;
+  transition: opacity 2s;
+  opacity: 0;
+
+  &:hover,
+  .viewHelp & {
+    background-color: white;
+    color: #444;
+  }
 }
 
 #all-component-templates {

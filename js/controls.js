@@ -13,6 +13,19 @@ var Controls = {
   isCurrentlyChanging: false
 };
 
+Controls.meta = function() {
+  $('.help').on('click', function (e) {
+    $("main").toggleClass("viewHelp");
+  })
+  $('.unique-url-input').on('click', function (e) {
+    console.log('hi')
+    $(e).select();
+  })
+  setTimeout(function () {
+    $('.help').css("opacity", 1);
+  }, 0)
+}
+
 Controls.zeroOut = function() {
   $(".grid-master .module").each(function (i, el) {
     var e = $(el);
@@ -35,37 +48,6 @@ Controls.zeroOut = function() {
       sliders.each(function (j, f) {
         $(f).attr("data-val", 0);
         $(f).css("left", 0);
-      })
-    }
-  })
-}
-
-Controls.applyRandom = function() {
-  $(".grid-master .module").each(function (i, el) {
-    var e = $(el);
-    var switches = e.find(".switch");
-    var knobs = e.find(".knob");
-    var sliders = e.find(".slider");
-    if(switches.length > 0) {
-      switches.each(function (j, f) {
-        var val = Math.random() > 0.5 ? 0 : 1;
-        $(f).attr("data-val", val);
-        val ? $(f).addClass("depressed") : $(f).removeClass("depressed");
-        $(f).siblings().removeClass("depressed");
-      })
-    }
-    if(knobs.length > 0) {
-      knobs.each(function (j, f) {
-        var val = Math.round(Math.random()*360);
-        $(f).attr("data-val", val);
-        $(f).find(".indicator").css("transform", "rotate("+val+"deg)");
-      })
-    }
-    if(sliders.length > 0) {
-      sliders.each(function (j, f) {
-        var val = Math.round(Math.random()*100);
-        $(f).attr("data-val", val);
-        $(f).css("left", val);
       })
     }
   })

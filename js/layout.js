@@ -1,5 +1,10 @@
+window.seedableRandom = function() {
+  var x = Math.sin(window.seed++) * 10000;
+  return x - Math.floor(x);
+}
+
 Array.prototype.randomIn = function() {
-  return this[ Math.floor(Math.random() * this.length) ];
+  return this[ Math.floor(window.seedableRandom() * this.length) ];
 }
 
 var Modules = {};
@@ -175,11 +180,11 @@ Layout.init = function(x, y, w, h) {
   var leewayX = w - p.width;
   var leewayY = h - p.height;
   //randomly align to right instead of left
-  if(Math.random() > 0.5) {
+  if(window.seedableRandom() > 0.5) {
     tempX = leewayX;
   }
   //randomly assign to bottom instead of top
-  if(Math.random() > 0.5) {
+  if(window.seedableRandom() > 0.5) {
     tempY = leewayY;
   }
   if(w - p.width > 0) {

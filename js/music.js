@@ -2,12 +2,16 @@ var Music = {}
 
 Music.init = function() {
 
-Music.melody = {
+Music.originalMelody = {
   key: "c,c#,d,d#,e,f,f#,g,g#,a,bb,b".split(",").randomIn(),
+  octave: "2,3,4,5".split(",").randomIn(),
   mode: "major,minor,mixolydian,blues".split(",").randomIn(),
   degree: 1,
   quality: "maj7,maj7,maj7,maj7,maj7,maj7,maj7,maj7,min7,7b5,aug7,dim7".split(",").randomIn()
 }
+
+//shallow clone
+Music.melody = $.extend({}, Music.originalMelody);
 
 //create a synth and connect it to the master output (your speakers)
 Music.synth = new Tone.Synth({
@@ -54,21 +58,11 @@ setInterval(function () {
 
 }
 
-Music.generateArpegio = function(key, scale, deg, quality) {
-  var k = key ? key : Music.melody.key;
-  var s = scale ? scale : Music.melody.mode;
-  var d = deg ? deg : Music.melody.degree;
-  var q = quality ? quality : Music.melody.quality;
-  Music.melody = {
-    key: k,
-    mode: s,
-    degree: d,
-    quality: q
-  }
-  var octave = "2,3,4,5".split(",").randomIn();
-  var root = teoria.note(k + octave);
-  var scl = root.scale(s);
-  var chord = scl.get(d).chord(q);
+Music.generateArpegio = function(paramsObj) {
+  Music.melody = $.extend(Music.melody, paramsObj);
+  var root = teoria.note(Music.melody.key + Music.melody.octave);
+  var scl = root.scale(Music.melody.mode);
+  var chord = scl.get(Music.melody.degree).chord(Music.melody.quality);
   var notesArray = chord.notes();
   notesArray.push( chord.notes()[0].interval("P8") )
   var noteNames = notesArray.map( function (e) {
@@ -111,15 +105,28 @@ Music.controlFunctions = {
       return prev += cur
     }, 0);
     if(checkIfAllZero == 0) {
-      Music.generateArpegio(null, null, null, "maj7");
+      Music.generateArpegio({quality: Music.originalMelody.quality});
     } else if(newValsArray[0] == 1) {
-      Music.generateArpegio(null, null, null, "min7");
+      console.log('hi');
+      Music.generateArpegio({quality: "maj7"});
     } else if(newValsArray[1] == 1) {
-      Music.generateArpegio(null, null, null, "aug7");
+      Music.generateArpegio({quality: "aug7"});
     } else if(newValsArray[2] && newValsArray[2] == 1) {
-      Music.generateArpegio(null, null, null, "dim7");
+      Music.generateArpegio({quality: "dim7"});
     } else if(newValsArray[3] && newValsArray[3] == 1) {
-      Music.generateArpegio(null, null, null, "7b5");
+      Music.generateArpegio({quality: "7b5"});
+    }
+  },
+  octave: function (newValsArray) {
+    var checkIfAllZero = newValsArray.toArray().reduce(function (prev, cur) {
+      return prev += cur
+    }, 0);
+    if(checkIfAllZero == 0) {
+      Music.generateArpegio({octave: Music.originalMelody.octave});
+    } else if(newValsArray[0] == 1) {
+      Music.generateArpegio({octave: parseInt(Music.originalMelody.octave, 10) - 1});
+    } else if(newValsArray[1] == 1) {
+      Music.generateArpegio({octave: parseInt(Music.originalMelody.octave, 10) + 1});
     }
   },
   oscillatorType: function(newValsArray) {
@@ -143,15 +150,15 @@ Music.controlFunctions = {
       return prev += cur
     }, 0);
     if(checkIfAllZero == 0) {
-      Music.generateArpegio(null, null, 1, null);
+      Music.generateArpegio({degree: Music.originalMelody.degree});
     } else if(newValsArray[0] == 1) {
-      Music.generateArpegio(null, null, 2, null);
+      Music.generateArpegio({degree: 1});
     } else if(newValsArray[1] == 1) {
-      Music.generateArpegio(null, null, 3, null);
+      Music.generateArpegio({degree: 2});
     } else if(newValsArray[2] && newValsArray[2] == 1) {
-      Music.generateArpegio(null, null, 4, null);
+      Music.generateArpegio({degree: 3});
     } else if(newValsArray[3] && newValsArray[3] == 1) {
-      Music.generateArpegio(null, null, 5, null);
+      Music.generateArpegio({degree: 4});
     }
   }
 }
@@ -173,6 +180,7 @@ Music.controlSurfaces = {
   "switch-2": [
     Music.controlFunctions.chord,
     Music.controlFunctions.oscillatorType,
+    Music.controlFunctions.octave
   ],
   "switch-4": [
     Music.controlFunctions.chord,
