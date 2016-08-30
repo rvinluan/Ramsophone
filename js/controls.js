@@ -15,15 +15,12 @@ var Controls = {
 
 Controls.meta = function() {
   $('.help').on('click', function (e) {
+    e.stopPropagation();
     $("main").toggleClass("viewHelp");
-  })
-  $('.unique-url-input').on('click', function (e) {
-    console.log('hi')
-    $(e).select();
   })
   setTimeout(function () {
     $('.help').css("opacity", 1);
-  }, 0)
+  }, 1000)
 }
 
 Controls.zeroOut = function() {

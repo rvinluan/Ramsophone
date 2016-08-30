@@ -42,12 +42,12 @@
           </div>
           <div class="about-face">
             <h2>Turn on sound, push buttons. Refresh page.</h2>
-            <p><a href="http://twitter.com/robertvinluan">Robert Vinluan</a> made this. It uses <a href="http://tonejs.org">Tone.js</a> for music synthesis, <a href="https://github.com/saebekassebil/teoria">Teoria.js</a> for theory, and a large large amount of CSS. Inspired by Dieter Rams. Resemblances to the Stranger Things theme may or may not be intentional. Hit '0' for debug mode.</p>
+            <p><a href="http://twitter.com/robertvinluan">Robert Vinluan</a> made this. It uses <a href="http://tonejs.org">Tone.js</a> for music synthesis, <a href="https://github.com/saebekassebil/teoria">Teoria.js</a> for theory, and a healthy amount of SCSS for good measure. Named after Dieter Rams. Resemblances to the Stranger Things theme may or may not be intentional. Hit '0' for debug view.</p>
             <p>Share your unique URL:</p>
             <code class="unique-url-input">http://robertvinluan.com/Ramsophone/</code>
             <p class="links">
-            <a href="http://www.facebook.com/sharer/sharer.php?u=http://robertvinluan.com/Ramsophone/" target="_blank" class="button-link">Share on Facebook</a> /
-            <a href="" target="_blank" class="button-link">Share on Twitter</a> /
+            <a href="http://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="button-link fb">Share on Facebook</a> /
+            <a href="https://twitter.com/intent/tweet?url=" target="_blank" class="button-link twitter">Share on Twitter</a> /
             <a href="" class="button-link">Refresh manually</a>
             </p>
           </div>
@@ -145,13 +145,18 @@
       <script src="js/layout.js"></script>
       <script src="js/controls.js"></script>
       <script>
+        var url;
         if(window.location.hash !== "") {
           window.seed = parseInt(window.location.hash.substr(1), 10);
+          url = window.location.href;
         } else {
-          var r = Math.floor( Math.random() * 1000 );
-          window.originalSeed = r;
+          var r = Math.floor( Math.random() * 10000 );
           window.seed = r;
+          url = $(".unique-url-input").text() + "#" + r;
         }
+        $(".unique-url-input").text(url);
+        $(".button-link.fb").attr("href", $(".button-link.fb").attr("href") + encodeURIComponent(url))
+        $(".button-link.twitter").attr("href", $(".button-link.twitter").attr("href") + encodeURIComponent(url))
         Music.init();
         Controls.bindEvents();
         Layout.init(0,0,8,8);
