@@ -14,12 +14,12 @@
         <meta property="og:url"                content="http://robertvinluan.com/Ramsophone/" />
         <meta property="og:type"               content="website" />
         <meta property="og:title"              content="Ramsophone" />
-        <meta property="og:description"        content="Turn on sound, push buttons. Refresh page." />
+        <meta property="og:description"        content="Turn on sound, push buttons, refresh page.." />
         <meta property="og:image"              content="http://robertvinluan.com/Ramsophone/Ramsophone-horizontal.png" />
         <meta name="twitter:card"              content="summary" />
         <meta name="twitter:site"              content="@Ramsophone" />
         <meta name="twitter:title"             content="Ramsophone" />
-        <meta name="twitter:description"       content="Turn on sound, push buttons. Refresh page." />
+        <meta name="twitter:description"       content="Turn on sound, push buttons, refresh page." />
         <meta name="twitter:image"             content="http://robertvinluan.com/Ramsophone/Ramsophone-preview.png" />
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -27,9 +27,22 @@
         <link rel="stylesheet" href="css/components.css">
         <link rel="stylesheet" href="css/grid.css">
 
+
         <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
         <script src="js/lib/teoria.js"></script>
         <script src="js/lib/Tone.min.js"></script>
+
+        <!--Fonts -->
+        <script>
+          (function(d) {
+            var config = {
+              kitId: 'nev7djh',
+              scriptTimeout: 3000,
+              async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+          })(document);
+        </script>
     </head>
     <body>
       <main>
@@ -41,9 +54,10 @@
             </div>
           </div>
           <div class="about-face">
-            <h2>Turn on sound, push buttons. Refresh page.</h2>
-            <p><a href="http://twitter.com/robertvinluan">Robert Vinluan</a> made this. It uses <a href="http://tonejs.org">Tone.js</a> for music synthesis, <a href="https://github.com/saebekassebil/teoria">Teoria.js</a> for theory, and a healthy amount of SCSS for good measure. Named after Dieter Rams. And phones. Resemblances to the Stranger Things theme may or may not be intentional. Hit '0' for debug view.</p>
-            <p>Share your unique URL:</p>
+            <h1>Ramsophone</h1>
+            <h2>Turn on sound, push buttons, refresh page.</h2>
+            <p><a href="http://twitter.com/robertvinluan">Robert Vinluan</a> made this. It uses <a href="http://tonejs.org">Tone.js</a> for music synthesis, <a href="https://github.com/saebekassebil/teoria">Teoria.js</a> for theory, and lots and lots of CSS. Named after Dieter Rams. And phones. Resemblances to the Stranger Things theme may or may not be intentional. Hit '<span>0</span>' for debug view.</p>
+            <p class="share-p">Share your unique URL:</p>
             <code class="unique-url-input">http://robertvinluan.com/Ramsophone/</code>
             <p class="links">
             <a href="http://www.facebook.com/sharer/sharer.php?u=" target="_blank" class="button-link fb">Share on Facebook</a> /

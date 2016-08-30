@@ -1,6 +1,6 @@
 body {
   background-color: #444;
-  font: 200 normal 20px/1 "Helvetica Neue", sans-serif;
+  font: 200 normal 20px/1 "neuzeit-grotesk", "Helvetica Neue", Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -webkit-perspective: 1000px;
@@ -58,18 +58,55 @@ main {
 .about-face {
   transform: rotateX(-90deg) translateZ(300px);
 
-  h2 {
-    font-size: 50px;
+  h1 {
+    font-weight: 700;
+    font-size: 73px;
     margin-top: 0;
-    line-height: 1.1;
+    line-height: 0.9;
+    margin-bottom: 77px;
+    letter-spacing: -0.9px;
+    position: relative;
+    color: #444;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -40px;
+      width: 1em;
+      height: 10px;
+      background-color: #444;
+    }
+  }
+
+  h2 {
+    font-size: 1.3em;
+    max-width: 10em;
+    color: #444;
   }
 
   p {
-    font-size: 14px;
-    margin: 20px 0 0 0;
+    font-size: 13px;
+    margin: 30px 0;
     font-weight: 400;
-    max-width: 28em;
-    line-height: 1.4;
+    line-height: 1.5;
+    font-family: "leitura-news", Georgia;
+    max-width: 35em;
+
+    span {
+      font-family: monospace;
+    }
+  }
+
+  .share-p {
+    margin: 0;
+    margin-bottom: 10px;
+    font-family: neuzeit-grotesk;
+    text-transform: uppercase;
+    color: #666;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 12px;
   }
 
   code {
@@ -82,15 +119,30 @@ main {
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 2px;
+    color: #444;
+    font-family: monospace;
   }
 
   .links {
     max-width: none;
     margin-top: 20px;
+    font-family: "neuzeit-grotesk";
+    font-size: 15px;
+
+    a {
+      font-family: neuzeit-grotesk;
+      text-transform: uppercase;
+      color: #444;
+      letter-spacing: 1px;
+      font-weight: 700;
+      font-size: 12px;
+      font-style: normal;
+    }
   }
 
   a {
-    color: #ce2f0a;
+    color: inherit;
+    font-style: italic;
     text-decoration: none;
     cursor: pointer;
 
@@ -112,7 +164,7 @@ main {
   border: 1px solid white;
   border-radius: 50%;
   padding: 3px 3px;
-  text-indent: 2px;
+  text-indent: 4px;
   display: block;
   transition: opacity 2s;
   opacity: 0;
