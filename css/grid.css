@@ -87,11 +87,10 @@ main {
 }
 /* line 82, ../scss/grid.scss */
 .about-face h2 {
-  font-size: 1.3em;
   max-width: 10em;
   color: #444;
 }
-/* line 88, ../scss/grid.scss */
+/* line 87, ../scss/grid.scss */
 .about-face p {
   font-size: 13px;
   margin: 30px 0;
@@ -100,22 +99,22 @@ main {
   font-family: "leitura-news", Georgia;
   max-width: 35em;
 }
-/* line 96, ../scss/grid.scss */
+/* line 95, ../scss/grid.scss */
 .about-face p span {
   font-family: monospace;
 }
-/* line 101, ../scss/grid.scss */
+/* line 100, ../scss/grid.scss */
 .about-face .share-p {
   margin: 0;
   margin-bottom: 10px;
   font-family: neuzeit-grotesk;
   text-transform: uppercase;
-  color: #666;
+  color: #444;
   letter-spacing: 1px;
   font-weight: 700;
   font-size: 12px;
 }
-/* line 112, ../scss/grid.scss */
+/* line 111, ../scss/grid.scss */
 .about-face code {
   width: 100%;
   display: block;
@@ -129,14 +128,14 @@ main {
   color: #444;
   font-family: monospace;
 }
-/* line 126, ../scss/grid.scss */
+/* line 125, ../scss/grid.scss */
 .about-face .links {
   max-width: none;
   margin-top: 20px;
   font-family: "neuzeit-grotesk";
   font-size: 15px;
 }
-/* line 132, ../scss/grid.scss */
+/* line 131, ../scss/grid.scss */
 .about-face .links a {
   font-family: neuzeit-grotesk;
   text-transform: uppercase;
@@ -146,19 +145,19 @@ main {
   font-size: 12px;
   font-style: normal;
 }
-/* line 143, ../scss/grid.scss */
+/* line 142, ../scss/grid.scss */
 .about-face a {
   color: inherit;
   font-style: italic;
   text-decoration: none;
   cursor: pointer;
 }
-/* line 149, ../scss/grid.scss */
+/* line 148, ../scss/grid.scss */
 .about-face a:hover {
   text-decoration: underline;
 }
 
-/* line 155, ../scss/grid.scss */
+/* line 154, ../scss/grid.scss */
 .help {
   width: 12px;
   height: 12px;
@@ -176,18 +175,18 @@ main {
   transition: opacity 2s;
   opacity: 0;
 }
-/* line 172, ../scss/grid.scss */
+/* line 171, ../scss/grid.scss */
 .help:hover, .viewHelp .help {
   background-color: white;
   color: #444;
 }
 
-/* line 179, ../scss/grid.scss */
+/* line 178, ../scss/grid.scss */
 #all-component-templates {
   display: none;
 }
 
-/* line 183, ../scss/grid.scss */
+/* line 182, ../scss/grid.scss */
 .grid-master {
   width: 480px;
   height: 480px;
@@ -196,188 +195,188 @@ main {
   align-content: flex-start;
   position: relative;
 }
-/* line 192, ../scss/grid.scss */
+/* line 191, ../scss/grid.scss */
 .grid-master > div {
   position: absolute;
   box-sizing: border-box;
 }
 
-/* line 200, ../scss/grid.scss */
+/* line 199, ../scss/grid.scss */
 .grid-width-0 {
   width: 0px;
 }
 
-/* line 203, ../scss/grid.scss */
+/* line 202, ../scss/grid.scss */
 .grid-height-0 {
   height: 0px;
 }
 
-/* line 206, ../scss/grid.scss */
+/* line 205, ../scss/grid.scss */
 .grid-x-0 {
   left: 0px;
 }
 
-/* line 209, ../scss/grid.scss */
+/* line 208, ../scss/grid.scss */
 .grid-y-0 {
   top: 0px;
 }
 
-/* line 200, ../scss/grid.scss */
+/* line 199, ../scss/grid.scss */
 .grid-width-1 {
   width: 60px;
 }
 
-/* line 203, ../scss/grid.scss */
+/* line 202, ../scss/grid.scss */
 .grid-height-1 {
   height: 60px;
 }
 
-/* line 206, ../scss/grid.scss */
+/* line 205, ../scss/grid.scss */
 .grid-x-1 {
   left: 60px;
 }
 
-/* line 209, ../scss/grid.scss */
+/* line 208, ../scss/grid.scss */
 .grid-y-1 {
   top: 60px;
 }
 
-/* line 200, ../scss/grid.scss */
+/* line 199, ../scss/grid.scss */
 .grid-width-2 {
   width: 120px;
 }
 
-/* line 203, ../scss/grid.scss */
+/* line 202, ../scss/grid.scss */
 .grid-height-2 {
   height: 120px;
 }
 
-/* line 206, ../scss/grid.scss */
+/* line 205, ../scss/grid.scss */
 .grid-x-2 {
   left: 120px;
 }
 
-/* line 209, ../scss/grid.scss */
+/* line 208, ../scss/grid.scss */
 .grid-y-2 {
   top: 120px;
 }
 
-/* line 200, ../scss/grid.scss */
+/* line 199, ../scss/grid.scss */
 .grid-width-3 {
   width: 180px;
 }
 
-/* line 203, ../scss/grid.scss */
+/* line 202, ../scss/grid.scss */
 .grid-height-3 {
   height: 180px;
 }
 
-/* line 206, ../scss/grid.scss */
+/* line 205, ../scss/grid.scss */
 .grid-x-3 {
   left: 180px;
 }
 
-/* line 209, ../scss/grid.scss */
+/* line 208, ../scss/grid.scss */
 .grid-y-3 {
   top: 180px;
 }
 
-/* line 200, ../scss/grid.scss */
+/* line 199, ../scss/grid.scss */
 .grid-width-4 {
   width: 240px;
 }
 
-/* line 203, ../scss/grid.scss */
+/* line 202, ../scss/grid.scss */
 .grid-height-4 {
   height: 240px;
 }
 
-/* line 206, ../scss/grid.scss */
+/* line 205, ../scss/grid.scss */
 .grid-x-4 {
   left: 240px;
 }
 
-/* line 209, ../scss/grid.scss */
+/* line 208, ../scss/grid.scss */
 .grid-y-4 {
   top: 240px;
 }
 
-/* line 200, ../scss/grid.scss */
+/* line 199, ../scss/grid.scss */
 .grid-width-5 {
   width: 300px;
 }
 
-/* line 203, ../scss/grid.scss */
+/* line 202, ../scss/grid.scss */
 .grid-height-5 {
   height: 300px;
 }
 
-/* line 206, ../scss/grid.scss */
+/* line 205, ../scss/grid.scss */
 .grid-x-5 {
   left: 300px;
 }
 
-/* line 209, ../scss/grid.scss */
+/* line 208, ../scss/grid.scss */
 .grid-y-5 {
   top: 300px;
 }
 
-/* line 200, ../scss/grid.scss */
+/* line 199, ../scss/grid.scss */
 .grid-width-6 {
   width: 360px;
 }
 
-/* line 203, ../scss/grid.scss */
+/* line 202, ../scss/grid.scss */
 .grid-height-6 {
   height: 360px;
 }
 
-/* line 206, ../scss/grid.scss */
+/* line 205, ../scss/grid.scss */
 .grid-x-6 {
   left: 360px;
 }
 
-/* line 209, ../scss/grid.scss */
+/* line 208, ../scss/grid.scss */
 .grid-y-6 {
   top: 360px;
 }
 
-/* line 200, ../scss/grid.scss */
+/* line 199, ../scss/grid.scss */
 .grid-width-7 {
   width: 420px;
 }
 
-/* line 203, ../scss/grid.scss */
+/* line 202, ../scss/grid.scss */
 .grid-height-7 {
   height: 420px;
 }
 
-/* line 206, ../scss/grid.scss */
+/* line 205, ../scss/grid.scss */
 .grid-x-7 {
   left: 420px;
 }
 
-/* line 209, ../scss/grid.scss */
+/* line 208, ../scss/grid.scss */
 .grid-y-7 {
   top: 420px;
 }
 
-/* line 200, ../scss/grid.scss */
+/* line 199, ../scss/grid.scss */
 .grid-width-8 {
   width: 480px;
 }
 
-/* line 203, ../scss/grid.scss */
+/* line 202, ../scss/grid.scss */
 .grid-height-8 {
   height: 480px;
 }
 
-/* line 206, ../scss/grid.scss */
+/* line 205, ../scss/grid.scss */
 .grid-x-8 {
   left: 480px;
 }
 
-/* line 209, ../scss/grid.scss */
+/* line 208, ../scss/grid.scss */
 .grid-y-8 {
   top: 480px;
 }
