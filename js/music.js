@@ -53,7 +53,9 @@ Tone.Transport.bpm.value = 150
 
 //special function to control the meters
 setInterval(function () {
-  $(".grid-master .meter .indicator").css("top", map(Music.meter.value, 0, 1.6, 200, 10));
+  var val = map(Music.meter.value, 0, 1.6, 200, 10);
+  val = clamp(val, 10, 200);
+  $(".grid-master .meter .indicator").css("top", val);
 }, 20)
 
 }

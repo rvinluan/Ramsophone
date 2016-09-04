@@ -110,7 +110,7 @@ Controls.bindEvents = function() {
       var dx, dy;
       e.preventDefault();
       if(!Controls.isCurrentlyChanging) { return; }
-      if(e.type == "mousedown") {
+      if(e.type == "mousemove") {
         dx = e.clientX - Controls.mouseOrigin.x;
         dy = e.clientY - Controls.mouseOrigin.y;
       } else {
