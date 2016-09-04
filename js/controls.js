@@ -14,14 +14,14 @@ var Controls = {
 };
 
 Controls.meta = function() {
-  $('.help').on('click', function (e) {
+  $('.help').on('click touchstart', function (e) {
     e.stopPropagation();
     $("main").toggleClass("viewHelp");
   })
   setTimeout(function () {
     $('.help').css("opacity", 1);
   }, 1000)
-  $('body').on('click', function (e) {
+  $('body').on('click touchstart', function (e) {
     if(e.target == document.body) {
       $("main").removeClass("viewHelp");
     }
@@ -82,10 +82,10 @@ Controls.bindEvents = function() {
   })
   //mouse interaction
   $(".grid-master")
-    .on("mousedown", function (e) {
+    .on("mousedown touchstart", function (e) {
       Controls.isCurrentlyChanging = true;
-      Controls.mouseOrigin.x = e.clientX;
-      Controls.mouseOrigin.y = e.clientY;
+      Controls.mouseOrigin.x = e.type == "mousedown" ? e.clientX : e.originalEvent.changedTouches[0].clientX;
+      Controls.mouseOrigin.y = e.type == "mousedown" ? e.clientY : e.originalEvent.changedTouches[0].clientY;
       Controls.changingObject = $(e.target);
       if(!Controls.changingObject[0].hasAttribute("data-val")) {
         Controls.changingObject.attr("data-val", 0);
@@ -101,16 +101,22 @@ Controls.bindEvents = function() {
       }
     });
   $(document)
-    .on("mouseup", function (e) {
+    .on("mouseup touchend", function (e) {
       e.preventDefault();
       Controls.isCurrentlyChanging = false;
       $("html").css("cursor", "auto");
     })
-    .on("mousemove", function (e) {
+    .on("mousemove touchmove", function (e) {
+      var dx, dy;
       e.preventDefault();
       if(!Controls.isCurrentlyChanging) { return; }
-      var dx = e.clientX - Controls.mouseOrigin.x;
-      var dy = e.clientY - Controls.mouseOrigin.y;
+      if(e.type == "mousedown") {
+        dx = e.clientX - Controls.mouseOrigin.x;
+        dy = e.clientY - Controls.mouseOrigin.y;
+      } else {
+        dx = e.originalEvent.changedTouches[0].clientX - Controls.mouseOrigin.x;
+        dy = e.originalEvent.changedTouches[0].clientY - Controls.mouseOrigin.y;
+      }
       if( Controls.changingObject.hasClass("knob") ) {
         Controls.knobControls(Controls.changingObject, dy);
       } 
